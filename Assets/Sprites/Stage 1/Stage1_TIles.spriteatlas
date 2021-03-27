@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Stage1_TIles
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: dc5d5ca435e0caa40bb54a03afa92fea, type: 3}
+    - {fileID: 102900000, guid: dcc3a48430e4e3344848ef5bd7681c64, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 2cca0b30fa89e904bbef2739b62e06f4, type: 3}
+  - {fileID: 21300000, guid: 02315961f0b829b47a1924becd009ef6, type: 3}
+  - {fileID: 21300000, guid: 2219313220ca1214db7f3098588d9505, type: 3}
+  - {fileID: 21300000, guid: b6a1b2a23dac63040ba27d670f8c8d58, type: 3}
+  - {fileID: 21300000, guid: 18c88043e8a9bac4da7474ea25673556, type: 3}
+  - {fileID: 21300000, guid: cc13426381109b94186e0e17aac8e02d, type: 3}
+  - {fileID: 21300000, guid: 9ecb58c3535410f4a9ebd8ed407519a4, type: 3}
+  - {fileID: 21300000, guid: 986e85b4c78164a488f8178c234084fb, type: 3}
+  - {fileID: 21300000, guid: 657f69b4d8909c041ad5f460b15b202a, type: 3}
+  - {fileID: 21300000, guid: 0937f5f43818e4543bff1f0788a441f0, type: 3}
+  - {fileID: 21300000, guid: 795364b5cc6ec2449a409a79eca9b67a, type: 3}
+  - {fileID: 21300000, guid: d636abf5f80c34f4f89b08f52ba66108, type: 3}
+  - {fileID: 21300000, guid: 652901271c6a2d948add0d0021f11bc4, type: 3}
+  - {fileID: 21300000, guid: 605527c7086209344a087d66d3ac4d46, type: 3}
+  - {fileID: 21300000, guid: 571e53281a1e3bf42aec44315c99ec5a, type: 3}
+  - {fileID: 21300000, guid: 8911f9a81a12ca447abe29499eedd2f4, type: 3}
+  - {fileID: 21300000, guid: 18ecba0b0f3f6e44fb01da3f7090bb66, type: 3}
+  - {fileID: 21300000, guid: 52b3732b85452394f8c1fe1ef85e34f3, type: 3}
+  - {fileID: 21300000, guid: a879ca2b209799e449108e31f0b8e095, type: 3}
+  - {fileID: 21300000, guid: 514b005c57cf6a543b987b5c0b67ce03, type: 3}
+  - {fileID: 21300000, guid: e0f66b6c7bb7f374caecc9d23520bf15, type: 3}
+  - {fileID: 21300000, guid: 74b15a9c2c8e06f42818419f96b6f144, type: 3}
+  - {fileID: 21300000, guid: e01c3cdc5e10e18459b4ab7fb7b338b7, type: 3}
+  - {fileID: 21300000, guid: 02e6cf3d3f8e3534f95ff4318f8942fe, type: 3}
+  - {fileID: 21300000, guid: 900125bd40d950643abbd9e3c01364ab, type: 3}
+  - {fileID: 21300000, guid: 3a2a514e27a23054088f25f959b22bf4, type: 3}
+  - {fileID: 21300000, guid: e6ac0f5e535b3cb4a938449b5390fce2, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Island_Test30013
+  - Island_Test30038
+  - Island_Test30012
+  - Island_Test30004
+  - Island_Test30037
+  - Island_Test30040
+  - Island_Test30008
+  - Island_Test30035
+  - Island_Test30001
+  - Island_Test30032
+  - Island_Test30039
+  - Island_Test30031
+  - Island_Test30003
+  - Island_Test30002
+  - Island_Test30041
+  - Island_Test30014
+  - Island_Test30007
+  - Island_Test30000
+  - Island_Test30011
+  - Island_Test30009
+  - Island_Test30005
+  - Island_Test30033
+  - Island_Test30036
+  - Island_Test30035 (2)
+  - Island_Test30010
+  - Island_Test30006
+  - Island_Test30030
+  m_Tag: Stage1_TIles
+  m_IsVariant: 0
