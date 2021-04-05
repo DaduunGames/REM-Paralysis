@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     public float cooldown;
     private float timer;
 
+    public Animator anim;
+    
+
     // Update is called once per frame
     void Update()
     {
@@ -61,6 +64,18 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement.Normalize();
+
+
+        if(movement != Vector2.zero)
+        {
+            anim.Play("Walk");
+            anim.SetFloat("x", Input.GetAxisRaw("Horizontal"));
+            anim.SetFloat("y", Input.GetAxisRaw("Vertical"));
+        }
+        else
+        {
+            anim.Play("Idle");
+        }
 
     }
 
