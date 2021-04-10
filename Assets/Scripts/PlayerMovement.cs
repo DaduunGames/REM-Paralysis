@@ -19,8 +19,19 @@ public class PlayerMovement : MonoBehaviour
     public float cooldown;
     private float timer;
 
-    public Animator anim;
+    public Animator anim_Player;
+    public Animator anim_Pillow;
+
+    public GameObject pillow;
     
+
+    Camera cam;
+
+    private void Start()
+    {
+        cam = FindObjectOfType<Camera>();
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -61,6 +72,9 @@ public class PlayerMovement : MonoBehaviour
         #endregion
 
 
+        RotatePillow();
+
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement.Normalize();
@@ -68,13 +82,18 @@ public class PlayerMovement : MonoBehaviour
 
         if(movement != Vector2.zero)
         {
-            anim.Play("Walk");
-            anim.SetFloat("x", Input.GetAxisRaw("Horizontal"));
-            anim.SetFloat("y", Input.GetAxisRaw("Vertical"));
+            float x = Input.GetAxisRaw("Horizontal");
+            float y = Input.GetAxisRaw("Vertical");
+
+            anim_Player.Play("Walk");
+            anim_Player.SetFloat("x", x);
+            anim_Player.SetFloat("y", y);
+
+            
         }
         else
         {
-            anim.Play("Idle");
+            anim_Player.Play("Idle");
         }
 
     }
@@ -82,5 +101,21 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * dashMovement * Time.fixedDeltaTime);
+    }
+
+    void RotatePillow()
+    {
+        Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 vDif = (Vector2)transform.position - mousePos;
+
+
+        float angle = Mathf.Atan2(vDif.y, vDif.x) * Mathf.Rad2Deg;
+        Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+        pillow.transform.rotation = q;
+
+        vDif.Normalize();
+
+        anim_Pillow.SetFloat("x", Mathf.RoundToInt(vDif.x));
+        anim_Pillow.SetFloat("y", Mathf.RoundToInt(vDif.y));
     }
 }
