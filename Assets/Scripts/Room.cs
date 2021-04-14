@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Room : MonoBehaviour
 {
@@ -14,6 +15,14 @@ public class Room : MonoBehaviour
 
     bool SpawnSuccessful = false;
 
+    //public AstarPath aStar;
+    public int Astarwidth = 20;
+    public int Astardepth = 20;
+    public float AstarnodeSize = 0.25f;
+
+    
+    
+
     void Start()
     {
         roomController = FindObjectOfType<RoomController>(); //there's only one room controller in the scene
@@ -24,6 +33,12 @@ public class Room : MonoBehaviour
         roomController.SpawnedRooms.Add(gameObject);
         SpawnSuccessful = false;
         Invoke("FinishSpawn", roomController.spawnDelay / 2);
+
+        // This holds all graph data
+        
+        
+        
+        
     }
 
     private void FinishSpawn()
@@ -41,9 +56,33 @@ public class Room : MonoBehaviour
 
     private void destroyRoomAndBridge()
     {
+        roomController.SpawnedRooms.Remove(gameObject);
+
         --roomController.roomCount;
         Destroy(SpawnedByMain.transform.parent.gameObject); //destroy the bridge that spawned you
 
         Destroy(gameObject); //destroy yourself
+    }
+
+    public void createAstarGraph()
+    {
+        AstarPath aStar = FindObjectOfType<AstarPath>();
+        AstarData data = aStar.data;
+
+        // This creates a Grid Graph
+        GridGraph gg = data.AddGraph(typeof(GridGraph)) as GridGraph;
+
+        // Setup a grid graph with some values
+        gg.collision.use2D = true;
+        gg.rotation = new Vector3(90, 0, 0);
+        gg.center = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.1f);
+        // Updates internal size from the above values
+        gg.SetDimensions(Astarwidth, Astardepth, AstarnodeSize);
+
+        //gg.collision.mask = LayerMask.GetMask("Ground");
+
+        
+        // Scans all graphs
+        AstarPath.active.Scan();
     }
 }

@@ -8,7 +8,7 @@ public class RoomController : MonoBehaviour
     public int MinRooms = 5;
     public int MaxRooms = 10;
     public int roomCount = 0;
-    [HideInInspector]
+    //[HideInInspector]
     public List<GameObject> SpawnedRooms;
 
     //prefab storage
@@ -160,6 +160,13 @@ public class RoomController : MonoBehaviour
     private void FinishedGeneration()
     {
         SpawnedBoss = true;
+
+        foreach(GameObject room in SpawnedRooms)
+        {
+            if (room.GetComponent<Room>() != null)
+            room.GetComponent<Room>().createAstarGraph();
+        }
+
         //TODO: change the instantiate to delete the last room and replace it completely
         Instantiate(BossPortal, SpawnedRooms[SpawnedRooms.Count - 1].transform.position, Quaternion.identity);
     }

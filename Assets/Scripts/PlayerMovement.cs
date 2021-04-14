@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         cam = FindObjectOfType<Camera>();
+
+        
     }
 
 

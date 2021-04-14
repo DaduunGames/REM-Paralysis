@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SA_Misc
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 096a7e6e357be2b49b8a748748d04f90, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 8efbed74a047e344498860ea224d0dd4, type: 3}
+  - {fileID: 21300000, guid: 4bde845578d3a8c4d80aa727124bbc1c, type: 3}
+  - {fileID: 21300000, guid: a351b0d7aa2900844ad8133c6ad74823, type: 3}
+  - {fileID: 21300000, guid: d7a6e8f8c0c06f6449396ff1c74e07d0, type: 3}
+  - {fileID: 21300000, guid: daca588a166b5d842a08ed037679cd64, type: 3}
+  - {fileID: 21300000, guid: 25084daa6ca8db74ebadd5179566d8a8, type: 3}
+  - {fileID: 21300000, guid: 5ea7941e6455fa24c8a7c6263f71dfb6, type: 3}
+  - {fileID: 21300000, guid: 8dca8c1eecea8fb468d48fcd39003cc5, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Feather05
+  - Pebbles_Vertical
+  - Feather01
+  - Feather02
+  - Pebbles_Horrizontal
+  - Feather03
+  - Feather04
+  - Feather06
+  m_Tag: SA_Misc
+  m_IsVariant: 0

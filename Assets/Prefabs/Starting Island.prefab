@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5644802262190826894}
   - component: {fileID: 3197552122911456668}
   - component: {fileID: 5734243555625551228}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Starting Island
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -66,6 +66,9 @@ MonoBehaviour:
   - {fileID: 5644802264213336710}
   - {fileID: 5644802263045475130}
   SpawnedByMain: {fileID: 0}
+  Astarwidth: 16
+  Astardepth: 16
+  AstarnodeSize: 0.5
 --- !u!50 &3197552122911456668
 Rigidbody2D:
   serializedVersion: 4
@@ -126,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5644802262263659960}
   - component: {fileID: 5644802262263659961}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bridge_T
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5644802262357156478}
   - component: {fileID: 5644802262357156479}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawner_T
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -254,7 +257,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5644802262543175329}
   - component: {fileID: 5644802262543175326}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bridge_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5644802262570002014}
   - component: {fileID: 5644802262570002015}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawner_L
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -382,7 +385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5644802262608695360}
   - component: {fileID: 5644802262608695361}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawner_R
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -432,7 +435,7 @@ GameObject:
   - component: {fileID: 5644802262697507928}
   - component: {fileID: 5644802262697507931}
   - component: {fileID: 5644802262697507930}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -1751,7 +1754,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5644802263045475128}
   - component: {fileID: 5644802263045475131}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bridge_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1833,7 +1836,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5644802263156769324}
   - component: {fileID: 5644802263156769325}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawner_B
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -1878,7 +1881,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5644802263351567978}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bridges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1913,7 +1916,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5644802264213336711}
   - component: {fileID: 5644802264213336708}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bridge_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
