@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     public Animator anim_Pillow;
 
     public GameObject pillow;
+
+    public ParticleSystem dust;
     
 
     Camera cam;
@@ -56,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
         {
             dashMovement = dashSpeed;
             timer = cooldown;
+            CreateDust();
         }
 
         if (dashMovement > 1)
@@ -119,5 +122,10 @@ public class PlayerMovement : MonoBehaviour
 
         anim_Pillow.SetFloat("x", Mathf.RoundToInt(vDif.x));
         anim_Pillow.SetFloat("y", Mathf.RoundToInt(vDif.y));
+    }
+
+    void CreateDust()
+    {
+        dust.Play();
     }
 }
