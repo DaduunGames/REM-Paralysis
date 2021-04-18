@@ -4,28 +4,37 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float moveSpeed = 5f;
-
-    public float walkSpeed;
-    public float sprintSpeed;
-
     public Rigidbody2D rb;
     Vector2 movement;
 
-    public float dashSpeed;
-    public float dashFalloff;
-    private float dashMovement = 1;
-
-    public float cooldown;
-    private float timer;
+    public ParticleSystem dust;
 
     public Animator anim_Player;
     public Animator anim_Pillow;
 
     public GameObject pillow;
 
-    public ParticleSystem dust;
+    #region Walking Variables
+    private float moveSpeed = 5f;
+    public float walkSpeed;
+    public float sprintSpeed;
+    #endregion
     
+    #region Dash Variables
+    public float dashSpeed;
+    public float dashFalloff;
+    private float dashMovement = 1;
+
+    public float cooldown;
+    private float timer;
+    #endregion
+
+    #region Bullet
+    public GameObject bulletToRight, bulletToLeft;
+    Vector2 bulletPos;
+    public float fireRate = 0.5f;
+    float nextFire = 0.0f;
+    #endregion
 
     Camera cam;
 
@@ -101,6 +110,12 @@ public class PlayerMovement : MonoBehaviour
             anim_Player.Play("Idle");
         }
 
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > nextFire
+        {
+            nextFire = Time.time + fireRate;
+            fire();
+        }
+
     }
 
     void FixedUpdate()
@@ -127,5 +142,10 @@ public class PlayerMovement : MonoBehaviour
     void CreateDust()
     {
         dust.Play();
+    }
+
+    private void OnAudioFilterRead(float[] data, int channels)
+    {
+        ()
     }
 }
