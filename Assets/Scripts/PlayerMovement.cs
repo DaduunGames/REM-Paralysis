@@ -144,8 +144,12 @@ public class PlayerMovement : MonoBehaviour
         dust.Play();
     }
 
-    private void OnAudioFilterRead(float[] data, int channels)
+    void fire()
     {
-        ()
+        bulletPos = transform.position;
+        if ())
+        {
+
+        }
     }
 }
