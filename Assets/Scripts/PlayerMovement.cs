@@ -30,10 +30,10 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     #region Bullet
-    public GameObject bulletToRight, bulletToLeft;
-    Vector2 bulletPos;
-    public float fireRate = 0.5f;
-    float nextFire = 0.0f;
+    //public GameObject bulletToRight, bulletToLeft;
+    //Vector2 bulletPos;
+    //public float fireRate = 0.5f;
+    //float nextFire = 0.0f;
     #endregion
 
     Camera cam;
@@ -110,11 +110,11 @@ public class PlayerMovement : MonoBehaviour
             anim_Player.Play("Idle");
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > nextFire
-        {
-            nextFire = Time.time + fireRate;
-            fire();
-        }
+        //if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > nextFire)
+        //{
+        //    nextFire = Time.time + fireRate;
+        //    fire();
+        //}
 
     }
 
@@ -144,12 +144,9 @@ public class PlayerMovement : MonoBehaviour
         dust.Play();
     }
 
-    void fire()
-    {
-        bulletPos = transform.position;
-        if ())
-        {
-
-        }
-    }
+    //void fire()
+    //{
+    //    bulletPos = transform.position;
+  
+    //}
 }
