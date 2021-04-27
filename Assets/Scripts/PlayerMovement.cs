@@ -110,10 +110,10 @@ public class PlayerMovement : MonoBehaviour
             anim_Player.Play("Idle");
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > nextFire
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            fire();
+            Fire();
         }
 
     }
@@ -144,8 +144,8 @@ public class PlayerMovement : MonoBehaviour
         dust.Play();
     }
 
-    private void OnAudioFilterRead(float[] data, int channels)
+    private void Fire()
     {
-        ()
+        
     }
 }

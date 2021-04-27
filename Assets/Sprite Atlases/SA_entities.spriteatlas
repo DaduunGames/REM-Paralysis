@@ -36,36 +36,70 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: 0329274048537164e9914aee231e351a, type: 3}
   - {fileID: 21300000, guid: 6d08e260985955e4fa89397facc72bb8, type: 3}
+  - {fileID: 21300000, guid: ef54a870c02870442a72523cb3165fba, type: 3}
   - {fileID: 21300000, guid: b320f280345a3f64a8ec0a67556b49c9, type: 3}
+  - {fileID: 21300000, guid: e690f8f09fe81074998e67cab2ec3bb6, type: 3}
+  - {fileID: 21300000, guid: 989b524191653c042acb9ffe97351abd, type: 3}
   - {fileID: 21300000, guid: a91ac4b1827dbe34a97ae56fb8995f3e, type: 3}
+  - {fileID: 21300000, guid: ec17b5e1da574a74295f0a6f6e4d0cd9, type: 3}
+  - {fileID: 21300000, guid: fb72a6f1e4efb484db6564b5ce0beceb, type: 3}
   - {fileID: 21300000, guid: 61f95f234112deb40889725ad17afb2b, type: 3}
   - {fileID: 21300000, guid: 62b17553af709b34ba4c70ee95a5c040, type: 3}
+  - {fileID: 21300000, guid: 8678b304982cdca47a6e6aa6eeb2d4d6, type: 3}
+  - {fileID: 21300000, guid: 99e856442e65d9e42aaec23b8c333fd1, type: 3}
+  - {fileID: 21300000, guid: d21644848dbe5364785f14f3c9ad08a1, type: 3}
+  - {fileID: 21300000, guid: d86d14a496f2efc47b449ac42ed824b0, type: 3}
+  - {fileID: 21300000, guid: 70cde3b48711b0c49980986d028591a6, type: 3}
   - {fileID: 21300000, guid: 5f3b8e45223be474fac2b59a72358584, type: 3}
   - {fileID: 21300000, guid: e196a185013cbff42ad95a32f077adec, type: 3}
+  - {fileID: 21300000, guid: cd0bf395434b84941adb9443a602fdb9, type: 3}
+  - {fileID: 21300000, guid: dff29b57ec7ebb444b60d4613cc599ba, type: 3}
   - {fileID: 21300000, guid: e090eb77af3944a488ed910236e51306, type: 3}
   - {fileID: 21300000, guid: 9bf3b238d4674974caa07319703834b3, type: 3}
+  - {fileID: 21300000, guid: 2dcfb2191605b394cb446f7476fe5da4, type: 3}
   - {fileID: 21300000, guid: 436b31bad531a954fbac92e6ab55828e, type: 3}
   - {fileID: 21300000, guid: 98149e1c7ca0024428ffee63e0efedc4, type: 3}
   - {fileID: 21300000, guid: 9188f32c590358547b836bd6a6df17f8, type: 3}
+  - {fileID: 21300000, guid: ad78cafc048c4bf41b799857c8133c12, type: 3}
   - {fileID: 21300000, guid: 2fb3529d3c2c3aa42b6e2bbcca97879e, type: 3}
+  - {fileID: 21300000, guid: 0eada2bdf2e681c4fb2354483cefe86a, type: 3}
   - {fileID: 21300000, guid: 8b22a6bd5d9aaa049ba049e8cfd79bc4, type: 3}
   - {fileID: 21300000, guid: 2243c58ed7189f449b0f9d69f95bd3bf, type: 3}
+  - {fileID: 21300000, guid: f507cb9e4e7fccb48af63a6e50cc5ad6, type: 3}
+  - {fileID: 21300000, guid: 90eb4efe60a68ae46838d59d1f15ac24, type: 3}
   m_PackedSpriteNamesToIndex:
   - Underwear_D
   - UnderwearFlinger_DL
+  - AngryShover_Body_U
   - UnderwearFlinger_U
+  - Shover_Body_D
+  - AngryShover_Body_D
   - Body_R
+  - Shover_Body_DL
+  - AngryShover_Body_UL
   - CapTassle
   - UnderwearFlinger_DR
+  - Shover_Body_R
+  - AngryShover_Body_R
+  - AngryShover_Body_UR
+  - AngryShover_Body_DL
+  - Shover_Body_DR
   - UnderwearFlinger_L
   - Hand
+  - Shover_Body_U
+  - AngryShover_Body_L
   - Body_DR
   - Body
+  - Shover_Body_L
   - UnderwearFlinger_R
   - UnderwearFlinger_UR
   - Body_UR
+  - AngryShover_Body_DR
   - BodyBack
+  - Shover_Body_UL
   - UnderwearFlinger_UL
   - Cap
+  - Shover_Hand
+  - Shover_Body_UR
   m_Tag: SA_entities
   m_IsVariant: 0
