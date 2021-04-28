@@ -256,16 +256,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 734187bfd99c9cd438d3448cdaf8f734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 2
-  sprintSpeed: 5
   rb: {fileID: 318638116}
-  dashSpeed: 50
-  dashFalloff: 500
-  cooldown: 0
+  dust: {fileID: 628445578}
   anim_Player: {fileID: 318638118}
   anim_Pillow: {fileID: 882019283}
   pillow: {fileID: 882019281}
-  dust: {fileID: 628445578}
+  walkSpeed: 2
+  sprintSpeed: 5
+  dashSpeed: 50
+  dashFalloff: 500
+  cooldown: 0
 --- !u!95 &318638118
 Animator:
   serializedVersion: 3
@@ -5448,6 +5448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1215653073}
   - component: {fileID: 1215653074}
+  - component: {fileID: 1215653075}
   m_Layer: 0
   m_Name: Pillow
   m_TagString: Untagged
@@ -5521,6 +5522,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1215653075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215653072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e307584d88aa4264ab317595696390a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 6924718587340039408, guid: cf28bdd03fe36f84b8ba4624d00546a1,
+    type: 3}
 --- !u!1 &1749025709
 GameObject:
   m_ObjectHideFlags: 0
