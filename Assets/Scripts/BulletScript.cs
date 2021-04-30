@@ -8,6 +8,8 @@ public class BulletScript : MonoBehaviour
     public GameObject bulletPrefab;
 
 
+
+
     void Start()
     {
 
@@ -24,6 +26,8 @@ public class BulletScript : MonoBehaviour
             FireBullet();//look for and use the fire bullet operation
 
         }
+
+        
 
         void FireBullet()
         {
