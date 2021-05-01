@@ -22,6 +22,18 @@ public class MainMenu : MonoBehaviour
         animator.SetBool("ToOptions", ToOptions);
     }
 
+    public void HowTo(bool ToHowTo)
+    {
+
+        animator.SetBool("ToHowTo", ToHowTo);
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitting Game...");
+        Application.Quit();
+    }
+
     public void spawnParticles(GameObject thisButton)
     {
         //thisButton.GetComponent<Image>().sprite = buttonPressedSprite;

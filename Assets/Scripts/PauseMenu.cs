@@ -9,6 +9,8 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
+    public Animator animator;
+
     // Update is called once per frame
     void Update()
     {
@@ -51,6 +53,19 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Quitting Game...");
         Application.Quit();
+    }
+
+    public void PMOptions(bool PMToOptions)
+    {
+
+        animator.SetBool("PMToOptions", PMToOptions);
+        Debug.Log("You fuck");
+    }
+
+    public void Help(bool ToHelp)
+    {
+
+        animator.SetBool("ToHelp", ToHelp);
     }
 }
 
