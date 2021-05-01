@@ -18,7 +18,10 @@ public class enemyCore : MonoBehaviour
         "health",
         "SP",
         "directionalBodies",
-        "IsAgro"
+        "IsAgro",
+        "AgroRadius",
+        "MustHavebeenthewind",
+        "showAgroRadius"
     };
 
 
@@ -33,19 +36,40 @@ public class enemyCore : MonoBehaviour
 
     private Animator anim;
     private AIPath aiPath;
+    private AIDestinationSetter destSetter;
 
 
+    public bool showAgroRadius;
     public bool IsAgro;
+    public float AgroRadius = 3f;
+    public float MustHavebeenthewind = 5f;
+
+    private GameObject Player;
 
 
     private void Start()
     {
         anim = GetComponent<Animator>();
         aiPath = GetComponent<AIPath>();
+        destSetter = GetComponent<AIDestinationSetter>();
+        Player = FindObjectOfType<PlayerMovement>().gameObject;
+
+        destSetter.target = null;
     }
 
     private void Update()
     {
+        if (Vector2.Distance(transform.position, Player.transform.position) < AgroRadius)
+        {
+            IsAgro = true;
+            destSetter.target = Player.transform;
+        }
+        if(Vector2.Distance(transform.position, Player.transform.position) > MustHavebeenthewind)
+        {
+            IsAgro = false;
+            destSetter.target = null;
+        }
+
         if (aiPath.velocity != Vector3.zero)    //When AI is Moving
         {
             anim.SetBool("Walking", true);
@@ -115,6 +139,19 @@ public class enemyCore : MonoBehaviour
            
             SP.sprite = normalSprite;
             print($"setting sprite to {normalSprite.name}");
+        }
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        if (showAgroRadius)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, AgroRadius);
+
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, MustHavebeenthewind);
         }
     }
 }

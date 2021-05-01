@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4671895035707455476}
   - component: {fileID: 4671895035707455475}
   - component: {fileID: 4671895035707455474}
+  - component: {fileID: 4080627935551864400}
   m_Layer: 0
   m_Name: Enemy_Shover
   m_TagString: Room
@@ -166,7 +167,26 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d86d14a496f2efc47b449ac42ed824b0, type: 3}
   - {fileID: 21300000, guid: dff29b57ec7ebb444b60d4613cc599ba, type: 3}
   - {fileID: 21300000, guid: fb72a6f1e4efb484db6564b5ce0beceb, type: 3}
+  showAgroRadius: 0
   IsAgro: 0
+  AgroRadius: 3
+  MustHavebeenthewind: 5
+--- !u!58 &4080627935551864400
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4671895035707455473}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &4671895035814569193
 GameObject:
   m_ObjectHideFlags: 0

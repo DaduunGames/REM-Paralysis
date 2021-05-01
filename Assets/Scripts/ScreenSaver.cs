@@ -23,7 +23,7 @@ public class ScreenSaver : MonoBehaviour
     {
         
         
-        transform.Rotate(0, 0, speed * (rotationdirection + extraSpeed));
+        transform.Rotate(0, 0, speed * (rotationdirection + extraSpeed) * Time.deltaTime);
         
         
 
@@ -59,7 +59,7 @@ public class ScreenSaver : MonoBehaviour
             extraSpeed -= Time.deltaTime;
         }
         
-        transform.position = (Vector2)transform.position + (Direction * speed);
+        transform.position = (Vector2)transform.position + (Direction * speed * Time.deltaTime);
     }
 
     void ToggleRotationDirection()

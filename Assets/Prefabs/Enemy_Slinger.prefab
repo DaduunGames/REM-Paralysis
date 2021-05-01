@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8412351803580440692}
   - component: {fileID: 8412351803580440693}
   - component: {fileID: 8412351803580440680}
+  - component: {fileID: 3920906187495386926}
   m_Layer: 0
   m_Name: Enemy_Slinger
   m_TagString: Room
@@ -158,7 +159,26 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8b22a6bd5d9aaa049ba049e8cfd79bc4, type: 3}
   hasAgroSprites: 0
   agroDirectionalBodies: []
+  showAgroRadius: 0
   IsAgro: 0
+  AgroRadius: 3
+  MustHavebeenthewind: 5
+--- !u!58 &3920906187495386926
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8412351803580440690}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &8412351805346504970
 GameObject:
   m_ObjectHideFlags: 0
