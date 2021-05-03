@@ -17,12 +17,11 @@ public class PlayerMovement : MonoBehaviour
     #region Walking Variables
     private float moveSpeed = 5f;
     public float walkSpeed;
-    public float sprintSpeed;
+    public float sprintModifier;
     #endregion
     
     #region Dash Variables
     public float dashSpeed;
-    public float dashFalloff;
     private float dashMovement = 1;
 
     public float cooldown;
@@ -38,10 +37,12 @@ public class PlayerMovement : MonoBehaviour
 
     Camera cam;
 
+    PlayerStats pStats;
+
     private void Start()
     {
         cam = FindObjectOfType<Camera>();
-
+        pStats = GetComponent<PlayerStats>();
         
     }
 
@@ -53,27 +54,27 @@ public class PlayerMovement : MonoBehaviour
         #region Sprinting
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            moveSpeed = sprintSpeed;
+            moveSpeed = walkSpeed * sprintModifier * pStats.movementSpeedModifier;
 
         }
         else
         {
-            moveSpeed = walkSpeed;
+            moveSpeed = walkSpeed * pStats.movementSpeedModifier;
         }
         #endregion
 
         #region Dash
         if (Input.GetKeyDown(KeyCode.Space) && timer <= 0)
         {
-            dashMovement = dashSpeed;
-            timer = cooldown;
+            dashMovement = dashSpeed * pStats.dashDistanceModifier;
+            timer = cooldown * pStats.dashCooldownModifier;
             CreateDust();
         }
 
         if (dashMovement > 1)
         {
             moveSpeed = 1;
-            dashMovement -= Time.deltaTime * dashFalloff;
+            dashMovement -= Time.deltaTime * (dashMovement * 10);
         }
         else if(dashMovement < 1)
         {

@@ -7,6 +7,6 @@ public class MyGameController : MonoBehaviour
     public Texture2D cursor;
     private void Start()
     {
-        Cursor.SetCursor(cursor,Vector2.zero,CursorMode.Auto);
+        Cursor.SetCursor(cursor,new Vector2(cursor.width/2,cursor.height/2),CursorMode.Auto);
     }
 }

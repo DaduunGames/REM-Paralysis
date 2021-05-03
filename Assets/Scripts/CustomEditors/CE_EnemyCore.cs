@@ -5,7 +5,7 @@ using UnityEditor;
 
 [CustomEditor(typeof(enemyCore))]
 [CanEditMultipleObjects]
-public class LookAtPointEditor : Editor
+public class CE_EnemyCore : Editor
 {
 
     SerializedProperty agroSpritesBool;
