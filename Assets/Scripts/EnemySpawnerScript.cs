@@ -16,23 +16,30 @@ public class EnemySpawnerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Spawn();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Time.time > nextSpawn)
-        {
-            nextSpawn = Time.time + spawnRate;
-            WhereToSpawn = Random.insideUnitCircle * spawnRadius;
-           // WhereToSpawn = new Vector2(randX, transform.position.y);
-            Instantiate(shover, WhereToSpawn, Quaternion.identity);
-            WhereToSpawn = Random.insideUnitCircle * spawnRadius;
-            Instantiate(slinger, WhereToSpawn, Quaternion.identity);
-            WhereToSpawn = Random.insideUnitCircle * spawnRadius;
-            Instantiate(wizard, WhereToSpawn, Quaternion.identity);
-        }
 
+
+    }
+
+    void Spawn()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            //if (Time.time > nextSpawn)
+            {
+                nextSpawn = Time.time + spawnRate;
+                WhereToSpawn = Random.insideUnitCircle * spawnRadius;
+                Instantiate(shover, WhereToSpawn, Quaternion.identity);
+                WhereToSpawn = Random.insideUnitCircle * spawnRadius;
+                Instantiate(slinger, WhereToSpawn, Quaternion.identity);
+                WhereToSpawn = Random.insideUnitCircle * spawnRadius;
+                Instantiate(wizard, WhereToSpawn, Quaternion.identity);
+            }
+        }
     }
 }

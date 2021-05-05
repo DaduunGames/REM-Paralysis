@@ -5,6 +5,7 @@ using UnityEngine;
 public class Breakables : MonoBehaviour
 {
     public GameObject particles;
+    public GameObject spawnLoot;
 
 
 
@@ -23,6 +24,7 @@ public class Breakables : MonoBehaviour
     private void Break()
     {
         Instantiate(particles, transform.position, transform.rotation);
+        Instantiate(spawnLoot, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }
