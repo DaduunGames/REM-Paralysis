@@ -20,7 +20,7 @@ public class Room : MonoBehaviour
     public int Astardepth = 20;
     public float AstarnodeSize = 0.25f;
 
-    
+    public bool Startingroom = false;
     
 
     void Start()

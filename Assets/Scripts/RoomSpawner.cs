@@ -27,6 +27,15 @@ public class RoomSpawner : MonoBehaviour
         //start the spawning proccess
         if (CanSpawn)
         {
+            if (!transform.root.GetComponent<Room>().Startingroom)
+            {
+                
+                if (roomController.bridgeSpawnChance < Random.Range(0, 100))
+                {
+                    Destroy(transform.parent.gameObject);
+                }
+            }
+
             Invoke("Spawn", roomController.spawnDelay);
         }
 
@@ -73,26 +82,29 @@ public class RoomSpawner : MonoBehaviour
 
     private void Spawn() 
     {
-        //first we need to find the direction we're spawning in
-        switch (direction)
-        {
-            case RoomController.Direction.Top: //E.G: this is a top spawner 
-                SpawnRoom(roomController.BottomRooms, 1); //E.G: so we reference the rooms that have a bottom bridge
-                return;
+        
 
-            case RoomController.Direction.Bottom:
-                SpawnRoom(roomController.TopRooms, 0);
-                return;
+            //first we need to find the direction we're spawning in
+            switch (direction)
+            {
+                case RoomController.Direction.Top: //E.G: this is a top spawner 
+                    SpawnRoom(roomController.BottomRooms, 1); //E.G: so we reference the rooms that have a bottom bridge
+                    return;
 
-            case RoomController.Direction.Left:
-                SpawnRoom(roomController.RightRooms, 3);
-                return;
+                case RoomController.Direction.Bottom:
+                    SpawnRoom(roomController.TopRooms, 0);
+                    return;
 
-            case RoomController.Direction.Right:
-                SpawnRoom(roomController.LeftRooms, 2);
-                return;
-        }
+                case RoomController.Direction.Left:
+                    SpawnRoom(roomController.RightRooms, 3);
+                    return;
+
+                case RoomController.Direction.Right:
+                    SpawnRoom(roomController.LeftRooms, 2);
+                    return;
+            }
     }
+    
 
     private void SpawnRoom(List<GameObject> rooms, int spawnDirection)
     {

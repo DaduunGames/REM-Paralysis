@@ -34,22 +34,50 @@ SpriteAtlas:
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: b63a962304543b34982215dd6bf1b1b8, type: 3}
   - {fileID: 21300000, guid: 8efbed74a047e344498860ea224d0dd4, type: 3}
+  - {fileID: 21300000, guid: f11421b4b61f66b4e940e8a1c02d85fe, type: 3}
   - {fileID: 21300000, guid: 4bde845578d3a8c4d80aa727124bbc1c, type: 3}
+  - {fileID: -4712777430531239470, guid: 6ef115c5b4c09bb4f9f11eb2c346f47a, type: 3}
+  - {fileID: 2669142961033076756, guid: 6ef115c5b4c09bb4f9f11eb2c346f47a, type: 3}
+  - {fileID: -3967920315399815954, guid: 6ef115c5b4c09bb4f9f11eb2c346f47a, type: 3}
+  - {fileID: 1327514091082312007, guid: 6ef115c5b4c09bb4f9f11eb2c346f47a, type: 3}
+  - {fileID: 5063102313881138252, guid: 6ef115c5b4c09bb4f9f11eb2c346f47a, type: 3}
+  - {fileID: -4182889659961899704, guid: 6ef115c5b4c09bb4f9f11eb2c346f47a, type: 3}
+  - {fileID: -3240055116637182912, guid: 6ef115c5b4c09bb4f9f11eb2c346f47a, type: 3}
+  - {fileID: 7771651157387608744, guid: 6ef115c5b4c09bb4f9f11eb2c346f47a, type: 3}
+  - {fileID: -633503913189222451, guid: 6ef115c5b4c09bb4f9f11eb2c346f47a, type: 3}
+  - {fileID: -83995490278912833, guid: 6ef115c5b4c09bb4f9f11eb2c346f47a, type: 3}
   - {fileID: 21300000, guid: a351b0d7aa2900844ad8133c6ad74823, type: 3}
   - {fileID: 21300000, guid: d7a6e8f8c0c06f6449396ff1c74e07d0, type: 3}
   - {fileID: 21300000, guid: daca588a166b5d842a08ed037679cd64, type: 3}
   - {fileID: 21300000, guid: 25084daa6ca8db74ebadd5179566d8a8, type: 3}
+  - {fileID: 21300000, guid: 3927630eea5147f45ac590449696907c, type: 3}
   - {fileID: 21300000, guid: 5ea7941e6455fa24c8a7c6263f71dfb6, type: 3}
   - {fileID: 21300000, guid: 8dca8c1eecea8fb468d48fcd39003cc5, type: 3}
+  - {fileID: 21300000, guid: f206336f1e20aa84da99246cb9ceff84, type: 3}
   m_PackedSpriteNamesToIndex:
+  - StoneBridge_Up
   - Feather05
+  - Bridge_cap
   - Pebbles_Vertical
+  - Clouds_8
+  - Clouds_0
+  - Clouds_1
+  - Clouds_4
+  - Clouds_5
+  - Clouds_18
+  - Clouds_17
+  - Clouds_15
+  - Clouds_22
+  - Clouds_20
   - Feather01
   - Feather02
   - Pebbles_Horrizontal
   - Feather03
+  - StoneBridge_Right_Back
   - Feather04
   - Feather06
+  - StoneBridge_Right_Front
   m_Tag: SA_Misc
   m_IsVariant: 0

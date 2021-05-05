@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public float walkSpeed;
     public float sprintModifier;
     #endregion
-    
+
     #region Dash Variables
     public float dashSpeed;
     private float dashMovement = 1;

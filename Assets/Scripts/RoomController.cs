@@ -8,8 +8,11 @@ public class RoomController : MonoBehaviour
     public int MinRooms = 5;
     public int MaxRooms = 10;
     public int roomCount = 0;
-    //[HideInInspector]
+    [HideInInspector]
     public List<GameObject> SpawnedRooms;
+
+    [Range(0,100)]
+    public float bridgeSpawnChance = 50;
 
     //prefab storage
     public GameObject[] AllRooms;
