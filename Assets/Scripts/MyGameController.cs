@@ -9,4 +9,9 @@ public class MyGameController : MonoBehaviour
     {
         Cursor.SetCursor(cursor,new Vector2(cursor.width/2,cursor.height/2),CursorMode.Auto);
     }
+
+    void EndGame()
+    {
+        Debug.Log("GAME OVER");
+    }
 }
