@@ -41,6 +41,8 @@ public class PlayerStats : MonoBehaviour
 
     public Camera cam;
 
+    public MyGameController myGameController;
+
     public enum BulletType
     {
         None,
