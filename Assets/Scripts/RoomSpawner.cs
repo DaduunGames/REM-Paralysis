@@ -35,7 +35,6 @@ public class RoomSpawner : MonoBehaviour
                     Destroy(transform.parent.gameObject);
                 }
             }
-
             Invoke("Spawn", roomController.spawnDelay);
         }
 

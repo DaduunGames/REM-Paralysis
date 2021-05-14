@@ -63,8 +63,9 @@ public class PlayerStats : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
         if (hit.collider != null) 
-        { 
-            if (hit.transform.gameObject.tag == "Item" && Vector3.Distance(transform.position, hit.transform.position) < pickupDistance)
+        {
+            
+            if (hit.transform.gameObject.tag == "Item")
             {
                 Item item = hit.transform.GetComponent<Item>();
                 Tooltip.SetActive(true);
