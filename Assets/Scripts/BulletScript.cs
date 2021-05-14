@@ -9,15 +9,15 @@ public class BulletScript : MonoBehaviour
 
 
 
-
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetButtonDown("Fire1"))
         {//when the left mouse button is clicked
 
@@ -27,20 +27,21 @@ public class BulletScript : MonoBehaviour
 
         }
 
-        
-
-        void FireBullet()
-        {
-            //Clone of the bullet
-            GameObject Clone;
-
-            //spawning the bullet at position
-            Clone = (Instantiate(bulletPrefab, transform.position, transform.rotation)) as GameObject;
-            Debug.Log("Bullet is found");
-
-
-
-            Debug.Log("Force is added");
-        }
     }
+
+    void FireBullet()
+    {
+        //Clone of the bullet
+        GameObject Clone;
+
+        //spawning the bullet at position
+        Clone = (Instantiate(bulletPrefab, transform.position, transform.rotation)) as GameObject;
+        Debug.Log("Bullet is found");
+
+
+    }
+
+
+
 }
+
