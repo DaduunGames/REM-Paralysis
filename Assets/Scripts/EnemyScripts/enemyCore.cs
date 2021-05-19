@@ -9,19 +9,22 @@ using Pathfinding;
 
 public class enemyCore : MonoBehaviour
 {
+    #region variables
     // just in this script, if you want a variable to show up in inspect you have to:
     // 1. set it as public
     // 2. add it to the string list below
+    // "===" can be used to make a spacer between variables
 
-    public static string[] AddToInspector = new string[] 
+    public static string[] AddToInspector = new string[]
     {
         "health",
-        "SP",
-        "directionalBodies",
-        "IsAgro",
-        "AgroRadius",
+        "===",
         "MustHavebeenthewind",
-        "showAgroRadius"
+        "AgroRadius",
+        "===",
+        "showRadiuses",
+        "SP",
+        "directionalBodies"
     };
 
 
@@ -39,13 +42,13 @@ public class enemyCore : MonoBehaviour
     private AIDestinationSetter destSetter;
 
 
-    public bool showAgroRadius;
+    public bool showRadiuses;
     public bool IsAgro;
     public float AgroRadius = 3f;
     public float MustHavebeenthewind = 5f;
 
-    private GameObject Player;
-
+    public GameObject Player;
+    #endregion
 
     private void Start()
     {
@@ -55,6 +58,7 @@ public class enemyCore : MonoBehaviour
         Player = FindObjectOfType<PlayerMovement>().gameObject;
 
         destSetter.target = null;
+        
     }
 
     private void Update()
@@ -62,13 +66,28 @@ public class enemyCore : MonoBehaviour
         if (Vector2.Distance(transform.position, Player.transform.position) < AgroRadius)
         {
             IsAgro = true;
-            destSetter.target = Player.transform;
+            
         }
         if(Vector2.Distance(transform.position, Player.transform.position) > MustHavebeenthewind)
         {
             IsAgro = false;
+           
+        }
+
+        if (IsAgro)
+        {
+
+            destSetter.target = Player.transform;
+            
+        }
+        else
+        {
             destSetter.target = null;
         }
+
+
+
+        #region update Visuals
 
         if (aiPath.velocity != Vector3.zero)    //When AI is Moving
         {
@@ -82,9 +101,9 @@ public class enemyCore : MonoBehaviour
         int x = Mathf.RoundToInt(aiPath.velocity.normalized.x);
         int y = Mathf.RoundToInt(aiPath.velocity.normalized.y);
 
-        switch(new Vector2(x, y))
+        switch (new Vector2(x, y))
         {
-            case Vector2 v when v.Equals(new Vector2(0,1)):     //U
+            case Vector2 v when v.Equals(new Vector2(0, 1)):     //U
                 ChangeSprite(0);
                 break;
 
@@ -116,6 +135,7 @@ public class enemyCore : MonoBehaviour
                 ChangeSprite(7);
                 break;
         }
+        #endregion
     }
 
     private void ChangeSprite(int direction)
@@ -123,7 +143,8 @@ public class enemyCore : MonoBehaviour
         Sprite normalSprite = directionalBodies[direction];
         Sprite agroSrite;
 
-        if (IsAgro) {
+        if (IsAgro)
+        {
             if (hasAgroSprites)
             {
                 agroSrite = agroDirectionalBodies[direction];
@@ -136,22 +157,22 @@ public class enemyCore : MonoBehaviour
         }
         else
         {
-           
+
             SP.sprite = normalSprite;
-            print($"setting sprite to {normalSprite.name}");
         }
     }
 
 
     private void OnDrawGizmos()
     {
-        if (showAgroRadius)
+        if (showRadiuses)
         {
-            Gizmos.color = Color.red;
+            Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(transform.position, AgroRadius);
 
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.position, MustHavebeenthewind);
+
         }
     }
 }

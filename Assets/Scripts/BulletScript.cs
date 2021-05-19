@@ -21,7 +21,7 @@ public class BulletScript : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {//when the left mouse button is clicked
 
-            print("1");//print a message to act as a debug
+            //print("1");//print a message to act as a debug
 
             FireBullet();//look for and use the fire bullet operation
 
@@ -36,7 +36,7 @@ public class BulletScript : MonoBehaviour
 
         //spawning the bullet at position
         Clone = (Instantiate(bulletPrefab, transform.position, transform.rotation)) as GameObject;
-        Debug.Log("Bullet is found");
+        //Debug.Log("Bullet is found");
 
 
     }

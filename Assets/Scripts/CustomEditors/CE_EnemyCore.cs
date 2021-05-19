@@ -26,8 +26,24 @@ public class CE_EnemyCore : Editor
 
         foreach (string variable in enemyCore.AddToInspector)
         {
-            EditorGUILayout.PropertyField(serializedObject.FindProperty(variable));
+            if(variable == "===")
+            {
+                EditorGUILayout.Separator();
+            }
+            else
+            {
+                EditorGUILayout.PropertyField(serializedObject.FindProperty(variable));
+            }
+            
         }
+
+
+
+        EditorGUILayout.Separator();
+        EditorGUILayout.Separator();
+        EditorGUILayout.Separator();
+        EditorGUILayout.LabelField("========Dynamic Settings========");
+        EditorGUILayout.Separator();
 
 
 
@@ -36,8 +52,6 @@ public class CE_EnemyCore : Editor
         {
             EditorGUILayout.PropertyField(agroDirectionBodies);
         }
-
-
 
 
         serializedObject.ApplyModifiedProperties();
