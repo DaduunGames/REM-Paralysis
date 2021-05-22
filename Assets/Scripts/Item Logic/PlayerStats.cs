@@ -28,6 +28,8 @@ public class PlayerStats : MonoBehaviour
     public List<GameObject> itemInventory;
 
     public float pickupDistance = 3;
+
+
     public GameObject Tooltip;
    
     public Text titleText;
@@ -39,9 +41,9 @@ public class PlayerStats : MonoBehaviour
     string negText;
 
 
-    public Camera cam;
+    
 
-    public MyGameController myGameController;
+    private MyGameController myGameController;
 
     public enum BulletType
     {
@@ -54,76 +56,79 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
+        if(!Tooltip.Equals(null)) Tooltip.SetActive(false);
 
-        Tooltip.SetActive(false);
+        myGameController = FindObjectOfType<MyGameController>();
     }
 
 
     void Update()
     {
 
-        RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
-        if (hit.collider != null) 
+        if (hit.collider != null)
         {
-            
+
             if (hit.transform.gameObject.tag == "Item")
             {
                 Item item = hit.transform.GetComponent<Item>();
-                Tooltip.SetActive(true);
-                Tooltip.transform.position = Input.mousePosition + new Vector3(0, 20, 0);
-
-
-                titleText.text = item.Title;
-                loreText.text = item.Lore;
-
-                posText = "";
-                negText = "";
-                AppendEffectText(item.health > 0, item.health < 0, $"Heal: +{item.health}", $"Heal: {item.health}");
-                AppendEffectText(item.maxHealth > 0, item.maxHealth < 0, $"Max Health: +{item.maxHealth}", $"Max Health: {item.maxHealth}");
-                AppendEffectText(item.money > 0, item.money < 0, $"Money: +{item.money}" , $"Money: {item.money}");
-                AppendEffectText(item.movementSpeedModifier > 0, item.movementSpeedModifier < 0, $"Move Speed: +{item.movementSpeedModifier*100}%", $"Move Speed: {item.movementSpeedModifier * 100}%");
-                AppendEffectText(item.dashDistanceModifier > 0, item.dashDistanceModifier < 0, $"Dash Distance: +{item.dashDistanceModifier*100}%", $"Dash Distance: {item.dashDistanceModifier * 100}%");
-                AppendEffectText(item.dashCooldownModifier < 0, item.dashCooldownModifier > 0, $"Dash Cooldown: {item.dashCooldownModifier*100}%", $"Dash Cooldown: +{item.dashCooldownModifier * 100}%");
-                AppendEffectText(item.bulletDamageModifier > 0, item.bulletDamageModifier < 0, $"Feather Damage: +{item.bulletDamageModifier*100}%", $"Feather Damage: {item.bulletDamageModifier * 100}%");
-                AppendEffectText(item.bulletSizeModifier > 0, item.bulletSizeModifier < 0, $"Feater Size: +{item.bulletSizeModifier*100}%", $"Feather Size: {item.bulletSizeModifier * 100}%");
-                AppendEffectText(item.attackSpeedModifier > 0, item.attackSpeedModifier < 0, $"Attack Speed: +{item.attackSpeedModifier*100}%", $"Attack Speed: {item.attackSpeedModifier * 100}%");
-                //AppendTipText(!item.AOE.Equals(null), false,$"AOE Effect: {item.AOE.name}\n", "");
-                AppendEffectText(item.bulletType != BulletType.None, false,$"Feather Type: {item.bulletType}", "");
-
-                if (posText != "")
+                if (!Tooltip.Equals(null))
                 {
-                    PositiveEffectText.text = posText;
-                    PositiveEffectText.enabled = true;
+                    Tooltip.SetActive(true);
+                    Tooltip.transform.position = Input.mousePosition + new Vector3(0, 20, 0);
+
+
+                    titleText.text = item.Title;
+                    loreText.text = item.Lore;
+
+                    posText = "";
+                    negText = "";
+                    AppendEffectText(item.health > 0, item.health < 0, $"Heal: +{item.health}", $"Heal: {item.health}");
+                    AppendEffectText(item.maxHealth > 0, item.maxHealth < 0, $"Max Health: +{item.maxHealth}", $"Max Health: {item.maxHealth}");
+                    AppendEffectText(item.money > 0, item.money < 0, $"Money: +{item.money}", $"Money: {item.money}");
+                    AppendEffectText(item.movementSpeedModifier > 0, item.movementSpeedModifier < 0, $"Move Speed: +{item.movementSpeedModifier * 100}%", $"Move Speed: {item.movementSpeedModifier * 100}%");
+                    AppendEffectText(item.dashDistanceModifier > 0, item.dashDistanceModifier < 0, $"Dash Distance: +{item.dashDistanceModifier * 100}%", $"Dash Distance: {item.dashDistanceModifier * 100}%");
+                    AppendEffectText(item.dashCooldownModifier < 0, item.dashCooldownModifier > 0, $"Dash Cooldown: {item.dashCooldownModifier * 100}%", $"Dash Cooldown: +{item.dashCooldownModifier * 100}%");
+                    AppendEffectText(item.bulletDamageModifier > 0, item.bulletDamageModifier < 0, $"Feather Damage: +{item.bulletDamageModifier * 100}%", $"Feather Damage: {item.bulletDamageModifier * 100}%");
+                    AppendEffectText(item.bulletSizeModifier > 0, item.bulletSizeModifier < 0, $"Feater Size: +{item.bulletSizeModifier * 100}%", $"Feather Size: {item.bulletSizeModifier * 100}%");
+                    AppendEffectText(item.attackSpeedModifier > 0, item.attackSpeedModifier < 0, $"Attack Speed: +{item.attackSpeedModifier * 100}%", $"Attack Speed: {item.attackSpeedModifier * 100}%");
+                    //AppendTipText(!item.AOE.Equals(null), false,$"AOE Effect: {item.AOE.name}\n", "");
+                    AppendEffectText(item.bulletType != BulletType.None, false, $"Feather Type: {item.bulletType}", "");
+
+                    if (posText != "")
+                    {
+                        PositiveEffectText.text = posText;
+                        PositiveEffectText.enabled = true;
+                    }
+                    else
+                    {
+                        PositiveEffectText.enabled = false;
+                    }
+
+
+                    if (negText != "")
+                    {
+                        NegativeEffectText.text = negText;
+                        NegativeEffectText.enabled = true;
+                    }
+
+                    else
+                    {
+                        NegativeEffectText.enabled = false;
+                    }
                 }
                 else
                 {
-                    PositiveEffectText.enabled = false;
-                }
+                    if (!Tooltip.Equals(null)) Tooltip.SetActive(false);
 
-
-                if(negText != "")
-                {
-                    NegativeEffectText.text = negText;
-                    NegativeEffectText.enabled = true;
-                }
-
-                else
-                {
-                    NegativeEffectText.enabled = false;
                 }
             }
             else
             {
-                Tooltip.SetActive(false);
-
+                if (!Tooltip.Equals(null)) Tooltip.SetActive(false);
             }
         }
-        else
-        {
-            Tooltip.SetActive(false);
-        }
-            
 
 
         

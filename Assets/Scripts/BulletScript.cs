@@ -6,25 +6,32 @@ public class BulletScript : MonoBehaviour
 {
 
     public GameObject bulletPrefab;
+    public ParticleSystem featherPuff;
+
+    public float shootSpeed;
+    private float shootSpeedMod;
+    private float timer;
 
 
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        if (timer <= 0) {
 
-        if (Input.GetButtonDown("Fire1"))
-        {//when the left mouse button is clicked
+            bool stunned = transform.root.GetComponent<PlayerMovement>().IsStunned;
+            if (Input.GetButton("Fire1") && !stunned)
+            {//when the left mouse button is clicked
 
-            //print("1");//print a message to act as a debug
+                FireBullet();//look for and use the fire bullet operation
 
-            FireBullet();//look for and use the fire bullet operation
-
+                //reset timer
+                shootSpeedMod = transform.root.GetComponent<PlayerStats>().attackSpeedModifier;
+                timer = shootSpeed;
+            }
+        }
+        else
+        {
+            timer -= Time.deltaTime;
         }
 
     }
@@ -39,6 +46,8 @@ public class BulletScript : MonoBehaviour
         //Debug.Log("Bullet is found");
 
 
+        GetComponent<Animator>().Play("Shoot",0,0);
+        featherPuff.Play();
     }
 
 
