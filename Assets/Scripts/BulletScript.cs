@@ -41,10 +41,12 @@ public class BulletScript : MonoBehaviour
         //Clone of the bullet
         GameObject Clone;
 
+        
         //spawning the bullet at position
         Clone = (Instantiate(bulletPrefab, transform.position, transform.rotation)) as GameObject;
         //Debug.Log("Bullet is found");
 
+       
 
         GetComponent<Animator>().Play("Shoot",0,0);
         featherPuff.Play();

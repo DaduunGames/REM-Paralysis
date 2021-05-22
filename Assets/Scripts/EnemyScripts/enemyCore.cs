@@ -10,44 +10,39 @@ using Pathfinding;
 public class enemyCore : MonoBehaviour
 {
     #region variables
-    // just in this script, if you want a variable to show up in inspect you have to:
-    // 1. set it as public
-    // 2. add it to the string list below
-    // "===" can be used to make a spacer between variables
-
-    public static string[] AddToInspector = new string[]
-    {
-        "health",
-        "===",
-        "MustHavebeenthewind",
-        "AgroRadius",
-        "===",
-        "showRadiuses",
-        "SP",
-        "directionalBodies"
-    };
-
-
-    public float health;
-
-    public SpriteRenderer SP;
 
     public Sprite[] directionalBodies;
-    public bool hasAgroSprites;
     public Sprite[] agroDirectionalBodies;
-
+    public SpriteRenderer SP;
 
     private Animator anim;
-    private AIPath aiPath;
-    private AIDestinationSetter destSetter;
-
-
-    public bool showRadiuses;
-    public bool IsAgro;
-    public float AgroRadius = 3f;
-    public float MustHavebeenthewind = 5f;
+    public AIPath aiPath { get; private set; }
+    public AIDestinationSetter destSetter { get; private set; }
 
     public GameObject Player;
+
+    //==========
+    public bool IsAgro { get; private set; }
+    public bool inAttackRange { get; private set; }
+    public bool showRadiuses;
+
+    public float health;
+    public float AgroRadius = 3f;
+    public float MustHavebeenthewind = 5f;
+    public float attackRange = 1.5f;
+
+    public int attackDamage;
+    public int DamageRandom;
+
+    public float pushforce = 30;
+    public float stuntime = 0.5f;
+
+    public float hitCooldown = 2;
+    private float cooldowntimer;
+
+    private Vector3 debugVector;
+
+
     #endregion
 
     private void Start()
@@ -56,6 +51,7 @@ public class enemyCore : MonoBehaviour
         aiPath = GetComponent<AIPath>();
         destSetter = GetComponent<AIDestinationSetter>();
         Player = FindObjectOfType<PlayerMovement>().gameObject;
+       
 
         destSetter.target = null;
         
@@ -63,6 +59,30 @@ public class enemyCore : MonoBehaviour
 
     private void Update()
     {
+        #region attack trigger
+        if (Vector2.Distance(Player.transform.position, transform.position) <= attackRange)
+        {
+            inAttackRange = true;
+
+            if (cooldowntimer <= 0)
+            {
+                print("attacking!!!!!!");
+                Attack();
+                cooldowntimer = hitCooldown;
+            }
+
+            else
+            {
+                cooldowntimer -= Time.deltaTime;
+            }
+        }
+        else
+        {
+            inAttackRange = false;
+        }
+        #endregion
+
+        #region agro once in radius
         if (Vector2.Distance(transform.position, Player.transform.position) < AgroRadius)
         {
             IsAgro = true;
@@ -73,19 +93,9 @@ public class enemyCore : MonoBehaviour
             IsAgro = false;
            
         }
+        #endregion
 
-        if (IsAgro)
-        {
-
-            destSetter.target = Player.transform;
-            
-        }
-        else
-        {
-            destSetter.target = null;
-        }
-
-
+        MoveEnemy();
 
         #region update Visuals
 
@@ -138,10 +148,32 @@ public class enemyCore : MonoBehaviour
         #endregion
     }
 
-
-    public void DamagePlayer(int damage, int DamageRandom)
+    public virtual void MoveEnemy()
     {
-        int randDMG = Mathf.RoundToInt(damage + Random.Range(-DamageRandom, DamageRandom));
+        if (IsAgro && !inAttackRange)
+        {
+            destSetter.target = Player.transform;
+        }
+        else
+        {
+            aiPath.SetPath(null);
+            destSetter.target = null;
+        }
+    }
+
+    public virtual void Attack() 
+    {
+        DamagePlayer();
+        StunPlayer(stuntime);
+
+        Vector2 force = Player.transform.position - transform.position;
+        force.Normalize();
+        Player.GetComponent<Rigidbody2D>().AddForce(force * pushforce, ForceMode2D.Impulse);
+    }
+
+    public void DamagePlayer()
+    {
+        int randDMG = Mathf.RoundToInt(attackDamage + Random.Range(-DamageRandom, DamageRandom));
         int dmg = (int)Mathf.Clamp(randDMG, 1, 999);
 
         Player.GetComponent<PlayerStats>().health -= dmg;
@@ -159,7 +191,7 @@ public class enemyCore : MonoBehaviour
 
         if (IsAgro)
         {
-            if (hasAgroSprites)
+            if (agroDirectionalBodies.Length != 0)
             {
                 agroSrite = agroDirectionalBodies[direction];
                 SP.sprite = agroSrite;
@@ -171,7 +203,6 @@ public class enemyCore : MonoBehaviour
         }
         else
         {
-
             SP.sprite = normalSprite;
         }
     }
@@ -187,6 +218,12 @@ public class enemyCore : MonoBehaviour
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.position, MustHavebeenthewind);
 
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, attackRange);
         }
+
+
+        //Gizmos.color = Color.cyan;
+        //Gizmos.DrawIcon(transform.position + debugVector, "", true);
     }
 }
