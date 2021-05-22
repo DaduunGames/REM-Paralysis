@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class PistolScript : MonoBehaviour
 {
 
     public GameObject bulletPrefab;
@@ -12,17 +12,22 @@ public class BulletScript : MonoBehaviour
     private float shootSpeedMod;
     private float timer;
 
+    private float totalCharge = 0f;
+    private float totalChargeNeeded = 3f;
+    private KeyCode chargedAndShootKey = KeyCode.Mouse0;
+
 
 
     void Update()
     {
-        if (timer <= 0) {
+        if (timer <= 0)
+        {
 
             bool stunned = transform.root.GetComponent<PlayerMovement>().IsStunned;
             if (Input.GetButton("Fire1") && !stunned)
             {//when the left mouse button is clicked
 
-                FireBullet();//look for and use the fire bullet operation
+                Pistol();
 
                 //reset timer
                 shootSpeedMod = transform.root.GetComponent<PlayerStats>().attackSpeedModifier;
@@ -33,10 +38,9 @@ public class BulletScript : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
-
     }
 
-    void FireBullet()
+    void Pistol()
     {
         //Clone of the bullet
         GameObject Clone;
