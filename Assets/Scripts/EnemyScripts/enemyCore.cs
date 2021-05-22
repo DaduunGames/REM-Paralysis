@@ -138,6 +138,20 @@ public class enemyCore : MonoBehaviour
         #endregion
     }
 
+
+    public void DamagePlayer(int damage, int DamageRandom)
+    {
+        int randDMG = Mathf.RoundToInt(damage + Random.Range(-DamageRandom, DamageRandom));
+        int dmg = (int)Mathf.Clamp(randDMG, 1, 999);
+
+        Player.GetComponent<PlayerStats>().health -= dmg;
+    }
+
+    public void StunPlayer(float time)
+    {
+        Player.GetComponent<PlayerMovement>().stunTimer = time;
+    }
+
     private void ChangeSprite(int direction)
     {
         Sprite normalSprite = directionalBodies[direction];

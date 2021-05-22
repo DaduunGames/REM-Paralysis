@@ -39,6 +39,9 @@ public class PlayerMovement : MonoBehaviour
 
     PlayerStats pStats;
 
+    public bool IsStunned;
+    public float stunTimer;
+
     private void Start()
     {
         cam = FindObjectOfType<Camera>();
@@ -86,8 +89,21 @@ public class PlayerMovement : MonoBehaviour
         }
         #endregion
 
+        if (!IsStunned)
+        {
+            RotatePillow();
+        }
 
-        RotatePillow();
+        if (stunTimer > 0) //currently stunned
+        {
+            IsStunned = true;
+            stunTimer -= Time.deltaTime;
+        }
+        else
+        {
+            IsStunned = false;
+        }
+        
 
 
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -121,7 +137,10 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * dashMovement * Time.fixedDeltaTime);
+        if (!IsStunned)
+        {
+            rb.MovePosition(rb.position + movement * moveSpeed * dashMovement * Time.fixedDeltaTime);
+        }
     }
 
     void RotatePillow()
