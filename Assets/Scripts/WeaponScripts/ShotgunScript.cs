@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class ShotgunScript : MonoBehaviour
 {
-
     public GameObject bulletPrefab;
     public ParticleSystem featherPuff;
 
@@ -12,17 +11,17 @@ public class BulletScript : MonoBehaviour
     private float shootSpeedMod;
     private float timer;
 
-
-
+    // Update is called once per frame
     void Update()
     {
-        if (timer <= 0) {
+        if (timer <= 0)
+        {
 
             bool stunned = transform.root.GetComponent<PlayerMovement>().IsStunned;
             if (Input.GetButton("Fire1") && !stunned)
             {//when the left mouse button is clicked
 
-                FireBullet();//look for and use the fire bullet operation
+                Shotgun();
 
                 //reset timer
                 shootSpeedMod = transform.root.GetComponent<PlayerStats>().attackSpeedModifier;
@@ -33,24 +32,24 @@ public class BulletScript : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
-
     }
 
-    void FireBullet()
+    void Shotgun()
     {
-        //Clone of the bullet
-        GameObject Clone;
+        GameObject Clone1;
+        GameObject Clone2;
+        GameObject Clone3;
 
-        //spawning the bullet at position
-        Clone = (Instantiate(bulletPrefab, transform.position, transform.rotation)) as GameObject;
-        //Debug.Log("Bullet is found");
+        Clone1 = (Instantiate(bulletPrefab, transform.position, transform.rotation)) as GameObject;
+        Clone2 = (Instantiate(bulletPrefab, transform.position, transform.rotation)) as GameObject;
+        Clone3 = (Instantiate(bulletPrefab, transform.position, transform.rotation)) as GameObject;
+
+        Clone1.transform.Rotate(0, 0, 30);
+        Clone3.transform.Rotate(0, 0, -30);
 
 
-        GetComponent<Animator>().Play("Shoot",0,0);
+        GetComponent<Animator>().Play("Shoot", 0, 0);
         featherPuff.Play();
+
     }
-
-
-
 }
-
