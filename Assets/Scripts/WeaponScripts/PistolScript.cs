@@ -12,11 +12,6 @@ public class PistolScript : MonoBehaviour
     private float shootSpeedMod;
     private float timer;
 
-    private float totalCharge = 0f;
-    private float totalChargeNeeded = 3f;
-    private KeyCode chargedAndShootKey = KeyCode.Mouse0;
-
-
 
     void Update()
     {

@@ -8,7 +8,7 @@ public class ChargedScript : MonoBehaviour
     public ParticleSystem featherPuff;
 
     private float totalCharge = 0f;
-    private float totalChargeNeeded = 3f;
+    private float totalChargeNeeded = 1f;
     private KeyCode chargedAndShootKey = KeyCode.Mouse0;
 
     // Update is called once per frame

@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: HealthSpriteLibrary
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: Health
+    m_Hash: -915003867
+    m_CategoryList:
+    - m_Name: Heart1
+      m_Hash: -847691505
+      m_Sprite: {fileID: 21300000, guid: 33c4bd5bb84c6d049a500485d1c867cc, type: 3}
+    - m_Name: Heart2
+      m_Hash: 1416630453
+      m_Sprite: {fileID: 21300000, guid: a0bf492ee6a403548bcf6db18f4afd03, type: 3}
+    - m_Name: Heart3
+      m_Hash: 595009571
+      m_Sprite: {fileID: 21300000, guid: 907081cc29f6bc6439e9ddce194cc5ce, type: 3}
+    - m_Name: Heart4
+      m_Hash: -1122781824
+      m_Sprite: {fileID: 21300000, guid: 11a0f7730e393e5499326716b55b5189, type: 3}
+    - m_Name: Heart5
+      m_Hash: -904624874
+      m_Sprite: {fileID: 21300000, guid: e78acd0fe3e954b4e96fba082f8cd9cc, type: 3}
+    - m_Name: Heart6
+      m_Hash: 1394463916
+      m_Sprite: {fileID: 21300000, guid: c6dbf74229789c2439964c53e33df24b, type: 3}
+    - m_Name: Heart7
+      m_Hash: 605742138
+      m_Sprite: {fileID: 21300000, guid: 358deeb926623674ab796019beeb10a9, type: 3}
+    - m_Name: Heart8
+      m_Hash: -1264191061
+      m_Sprite: {fileID: 21300000, guid: 1f5a3087d18be3c4e9fa9dadf2bc62ba, type: 3}
+    - m_Name: Heart9
+      m_Hash: -1012741827
+      m_Sprite: {fileID: 21300000, guid: 9089bd177a12ca74d991af8c21f0b8fb, type: 3}
+    - m_Name: Heart10
+      m_Hash: 1688845297
+      m_Sprite: {fileID: 21300000, guid: 65861a054bb87ce469e0f1da4be1eb37, type: 3}
+    - m_Name: Heart11
+      m_Hash: 330206055
+      m_Sprite: {fileID: 21300000, guid: c6ab4d053e860f847ad4d20d53e59e24, type: 3}
+    - m_Name: Heart12
+      m_Hash: -1968710947
+      m_Sprite: {fileID: 21300000, guid: df0815a89769ba54fa4ea2d7f3b83c6d, type: 3}
