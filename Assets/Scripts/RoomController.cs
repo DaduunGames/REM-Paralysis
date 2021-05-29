@@ -43,6 +43,10 @@ public class RoomController : MonoBehaviour
     public float timer;
     bool SpawnedBoss = false;
     bool IsResetting = false;
+
+    bool finishedGenerating;
+    public bool coverWithLoadingScreen;
+    public GameObject loadingScreen;
    
     public enum Direction
     {
@@ -60,6 +64,7 @@ public class RoomController : MonoBehaviour
         sortRooms(); //sort the rooms into the 4 different lists above
         SpawnStartRoom(); //spawn the starting room which will begin the map generation
 
+        finishedGenerating = false;
     }
 
 
@@ -101,6 +106,18 @@ public class RoomController : MonoBehaviour
                 }
             }
 
+        }
+
+        if (coverWithLoadingScreen)
+        {
+            if (finishedGenerating)
+            {
+                loadingScreen.SetActive(false);
+            }
+            else
+            {
+                loadingScreen.SetActive(true);
+            }
         }
     }
 
@@ -196,7 +213,9 @@ public class RoomController : MonoBehaviour
         AstarPath.active.Scan();
 
 
-        //BossPortal bp = FindObjectOfType<BossPortal>();
-        //if (bp == null) ResetLevelGeneration();
+
+
+
+        finishedGenerating = true;
     }
 }
