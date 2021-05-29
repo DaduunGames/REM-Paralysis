@@ -20,7 +20,7 @@ public class RoomSpawner : MonoBehaviour
     {
         roomController = FindObjectOfType<RoomController>(); //only one roomcontroller in the scene
         
-        SpawnedBy = GetComponentInParent<Room>().SpawnedByMain; //setting the room's spawned by to be found easier in it's anchors
+        SpawnedBy = transform.root.GetComponent<Room>().SpawnedByMain; //setting the room's spawned by to be found easier in it's anchors
 
         if (SpawnedBy != null) { SetCanSpawn(); } else { CanSpawn = true; }
 
@@ -29,7 +29,6 @@ public class RoomSpawner : MonoBehaviour
         {
             if (!transform.root.GetComponent<Room>().Startingroom)
             {
-                
                 if (roomController.bridgeSpawnChance < Random.Range(0, 100))
                 {
                     Destroy(transform.parent.gameObject);
@@ -110,7 +109,6 @@ public class RoomSpawner : MonoBehaviour
         //if we're under the room minimum
         if (roomController.UnderMinimum) 
         {
-
             //pick a random room
             int rand = Random.Range(0, rooms.Count - 1);
             GameObject room = rooms[rand];
@@ -134,5 +132,40 @@ public class RoomSpawner : MonoBehaviour
             Destroy(transform.parent.gameObject); //just destroy the bridge and dont let it spawn anything
 
         }
+    }
+
+
+
+    public void SpawnBossPortal()
+    {
+        print("starting to place boss portal");
+        GameObject room = roomController.BossPortal;
+        int newDir = 0;
+        switch (direction)
+        {
+            case RoomController.Direction.Top: 
+                newDir = 1; 
+                break;
+
+            case RoomController.Direction.Bottom:
+                newDir = 0;
+                break;
+
+            case RoomController.Direction.Left:
+                newDir = 3;
+                break;
+
+            case RoomController.Direction.Right:
+                newDir = 2;
+                break;
+        }
+
+        GameObject anchor = room.GetComponent<Room>().Bridges_TBLR[newDir].GetComponentInChildren<RoomSpawner>().gameObject;
+        newRoom = Instantiate(room, transform.position - anchor.transform.position, Quaternion.identity);
+
+        newRoom.GetComponent<Room>().SpawnedByMain = this;
+        anchor.GetComponent<RoomSpawner>().SpawnedBy = this;
+
+        print("finished placing boss portal");
     }
 }

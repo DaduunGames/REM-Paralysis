@@ -21,7 +21,7 @@ public class Room : MonoBehaviour
     public float AstarnodeSize = 0.25f;
 
     public bool Startingroom = false;
-    
+    private bool isColliding;
 
     void Start()
     {
@@ -34,7 +34,6 @@ public class Room : MonoBehaviour
         SpawnSuccessful = false;
         Invoke("FinishSpawn", roomController.spawnDelay / 2);
 
-        // This holds all graph data
         
         
         
@@ -50,16 +49,27 @@ public class Room : MonoBehaviour
     {
         if (collision.tag == "Room" && !SpawnSuccessful) //only destroy self if this room isnt finished spawning yet
         {
+            if (isColliding) return;
+            isColliding = true;
+            // Rest of the code
+            StartCoroutine(TriggerReset());
+
             Invoke("destroyRoomAndBridge", 0.1f);
         }
     }
 
-    private void destroyRoomAndBridge()
+IEnumerator TriggerReset()
+{
+    yield return new WaitForEndOfFrame();
+    isColliding = false;
+}
+
+private void destroyRoomAndBridge()
     {
         roomController.SpawnedRooms.Remove(gameObject);
 
         --roomController.roomCount;
-        Destroy(SpawnedByMain.transform.parent.gameObject); //destroy the bridge that spawned you
+        if(!SpawnedByMain.Equals(null)) Destroy(SpawnedByMain.transform.parent.gameObject); //destroy the bridge that spawned you
 
         Destroy(gameObject); //destroy yourself
     }
@@ -79,10 +89,8 @@ public class Room : MonoBehaviour
         // Updates internal size from the above values
         gg.SetDimensions(Astarwidth, Astardepth, AstarnodeSize);
 
-        //gg.collision.mask = LayerMask.GetMask("Ground");
+        gg.collision.mask = LayerMask.GetMask("Hole");
 
         
-        // Scans all graphs
-        AstarPath.active.Scan();
     }
 }

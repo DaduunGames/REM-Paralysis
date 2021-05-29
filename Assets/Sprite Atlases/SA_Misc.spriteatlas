@@ -36,6 +36,15 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: b63a962304543b34982215dd6bf1b1b8, type: 3}
   - {fileID: 21300000, guid: 8efbed74a047e344498860ea224d0dd4, type: 3}
+  - {fileID: 2969240925215901275, guid: c36a7aa4557fbd54b899de97ac485c37, type: 3}
+  - {fileID: -1811650928723315195, guid: c36a7aa4557fbd54b899de97ac485c37, type: 3}
+  - {fileID: -2648953981797407993, guid: c36a7aa4557fbd54b899de97ac485c37, type: 3}
+  - {fileID: -7388366584393088605, guid: c36a7aa4557fbd54b899de97ac485c37, type: 3}
+  - {fileID: -1537144484491974372, guid: c36a7aa4557fbd54b899de97ac485c37, type: 3}
+  - {fileID: -6354415979015738946, guid: c36a7aa4557fbd54b899de97ac485c37, type: 3}
+  - {fileID: -3719856400255131589, guid: c36a7aa4557fbd54b899de97ac485c37, type: 3}
+  - {fileID: 2481770993996789871, guid: c36a7aa4557fbd54b899de97ac485c37, type: 3}
+  - {fileID: 6210011178892182287, guid: c36a7aa4557fbd54b899de97ac485c37, type: 3}
   - {fileID: 21300000, guid: f11421b4b61f66b4e940e8a1c02d85fe, type: 3}
   - {fileID: 21300000, guid: ed12cce4f9687bd43b1332dd145804da, type: 3}
   - {fileID: 21300000, guid: 4bde845578d3a8c4d80aa727124bbc1c, type: 3}
@@ -60,6 +69,15 @@ SpriteAtlas:
   m_PackedSpriteNamesToIndex:
   - StoneBridge_Up
   - Feather05
+  - CloudsV2_4
+  - CloudsV2_5
+  - CloudsV2_6
+  - CloudsV2_7
+  - CloudsV2_0
+  - CloudsV2_1
+  - CloudsV2_2
+  - CloudsV2_3
+  - CloudsV2_8
   - Bridge_cap
   - BulletFeather
   - Pebbles_Vertical

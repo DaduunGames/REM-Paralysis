@@ -207,7 +207,7 @@ MonoBehaviour:
   anim_Pillow: {fileID: 2482077812824007326}
   pillow: {fileID: 1704760720292645110}
   walkSpeed: 2
-  sprintModifier: 0
+  sprintModifier: 2
   dashSpeed: 50
   cooldown: 0
   IsStunned: 0
@@ -15164,6 +15164,7 @@ MonoBehaviour:
   guns: []
   weaponHolder: {fileID: 6398543633971803513}
   currentGun: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1 &6734812599861504558
 GameObject:
   m_ObjectHideFlags: 0

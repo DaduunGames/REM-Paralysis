@@ -250,7 +250,7 @@ MonoBehaviour:
   runAwayTarget: {fileID: 8880486559738092003}
   WalkingSpeed: 1
   Runningspeed: 3
-  SummonCooldown: 3
+  SummonCooldown: 10
 --- !u!1 &8880486560815576697
 GameObject:
   m_ObjectHideFlags: 0

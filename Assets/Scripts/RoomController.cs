@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class RoomController : MonoBehaviour
 {
@@ -28,8 +29,11 @@ public class RoomController : MonoBehaviour
     public List<GameObject> RightRooms;
     //misc prefabs that need manual sorting
     //public GameObject[] deadEnds;
+    public bool GenerateLevelOnStart;
     public GameObject StartRoom;
     public GameObject BossPortal;
+
+    public AstarPath Astar;
 
     //room spawn logic
     public bool UnderMinimum = true;
@@ -72,7 +76,7 @@ public class RoomController : MonoBehaviour
                 UnderMinimum = false;
             }
 
-            if (roomCount > 100) //if the room spawning goes haywire, stop it before unity freazes
+            if (roomCount > 100 || roomCount < -100) //if the room spawning goes haywire, stop it before unity freazes
             {
                 Debug.Break();
             }
@@ -152,16 +156,29 @@ public class RoomController : MonoBehaviour
         timer = spawnDelay;
 
         IsResetting = false;
+
+        SpawnedBoss = false;
+
+        if (!Astar.data.graphs.Equals(null))
+        {
+            foreach (NavGraph gg in Astar.data.graphs)
+            {
+                Astar.data.RemoveGraph(gg);
+            }
+        }
     }
 
     private void SpawnStartRoom()
     {
-        //super simple "spawn" for the very virst starting room right at 0,0 with no rotation.
-        Instantiate(StartRoom, transform.position, Quaternion.identity);
+        if (GenerateLevelOnStart) {
+            //super simple "spawn" for the very virst starting room right at 0,0 with no rotation.
+            Instantiate(StartRoom, transform.position, Quaternion.identity);
+        }
     }
 
     private void FinishedGeneration()
     {
+        print("finished generation");
         SpawnedBoss = true;
 
         foreach(GameObject room in SpawnedRooms)
@@ -170,7 +187,16 @@ public class RoomController : MonoBehaviour
             room.GetComponent<Room>().createAstarGraph();
         }
 
-        //TODO: change the instantiate to delete the last room and replace it completely
-        Instantiate(BossPortal, SpawnedRooms[SpawnedRooms.Count - 1].transform.position, Quaternion.identity);
+        GameObject lastRoom = SpawnedRooms[SpawnedRooms.Count - 1];
+        RoomSpawner rs = lastRoom.GetComponent<Room>().SpawnedByMain;
+
+        Destroy(lastRoom);
+        rs.SpawnBossPortal();
+
+        AstarPath.active.Scan();
+
+
+        //BossPortal bp = FindObjectOfType<BossPortal>();
+        //if (bp == null) ResetLevelGeneration();
     }
 }
