@@ -44,7 +44,7 @@ public class RoomController : MonoBehaviour
     bool SpawnedBoss = false;
     bool IsResetting = false;
 
-    bool finishedGenerating;
+    public bool finishedGenerating;
     public bool coverWithLoadingScreen;
     public GameObject loadingScreen;
    

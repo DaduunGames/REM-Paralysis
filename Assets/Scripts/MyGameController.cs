@@ -16,19 +16,17 @@ public class MyGameController : MonoBehaviour
         Cursor.SetCursor(cursor,new Vector2(cursor.width/2,cursor.height/2),CursorMode.Auto);
     }
 
-    void EndGame()
+    public void EndGame()
     {
-        if(gameHasEnded == true)
-        {
             gameHasEnded = true;
             Debug.Log("GAME OVER");
             //Game Over Screen
             Invoke("Restart", restartDelay);
-        }
+        
     }
 
     void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

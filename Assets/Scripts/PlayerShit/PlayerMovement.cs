@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     #region Dash Variables
+    public bool isDashing;
+
     public float dashSpeed;
     private float dashMovement = 1;
 
@@ -78,10 +80,12 @@ public class PlayerMovement : MonoBehaviour
         {
             moveSpeed = 1;
             dashMovement -= Time.deltaTime * (dashMovement * 10);
+            isDashing = true;
         }
         else if(dashMovement < 1)
         {
             dashMovement = 1;
+            isDashing = false;
         }
         if(timer > 0)
         {
