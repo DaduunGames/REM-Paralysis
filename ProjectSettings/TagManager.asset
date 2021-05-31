@@ -9,6 +9,8 @@ TagManager:
   - Item
   - Bullet
   - Enemy
+  - Hole
+  - EBullet
   layers:
   - Default
   - TransparentFX

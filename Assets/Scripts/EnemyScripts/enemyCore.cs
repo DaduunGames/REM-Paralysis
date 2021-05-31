@@ -27,6 +27,7 @@ public class enemyCore : MonoBehaviour
     public bool showRadiuses;
 
     public float health;
+    
     public float AgroRadius = 3f;
     public float MustHavebeenthewind = 5f;
     public float attackRange = 1.5f;
@@ -42,6 +43,13 @@ public class enemyCore : MonoBehaviour
 
     private Vector3 debugVector;
 
+    private float selfStunTimer;
+    private bool isSelfStunned;
+    public Color selfStunnedColour;
+
+    private SpriteRenderer[] visuals;
+
+    public GameObject deathParticles;
 
     #endregion
 
@@ -51,7 +59,8 @@ public class enemyCore : MonoBehaviour
         aiPath = GetComponent<AIPath>();
         destSetter = GetComponent<AIDestinationSetter>();
         Player = FindObjectOfType<PlayerMovement>().gameObject;
-       
+        visuals = GetComponentsInChildren<SpriteRenderer>();
+
 
         destSetter.target = null;
         
@@ -59,43 +68,58 @@ public class enemyCore : MonoBehaviour
 
     private void Update()
     {
-        #region attack trigger
-        if (Vector2.Distance(Player.transform.position, transform.position) <= attackRange)
+        if (health <= 0)
         {
-            inAttackRange = true;
+            Instantiate(deathParticles, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
 
-            if (cooldowntimer <= 0)
+        if (selfStunTimer > 0)
+        {
+            isSelfStunned = true;
+            selfStunTimer -= Time.deltaTime;
+            foreach (SpriteRenderer spr in visuals)
             {
-                print("attacking!!!!!!");
-                Attack();
-                cooldowntimer = hitCooldown;
-            }
-
-            else
-            {
-                cooldowntimer -= Time.deltaTime;
+                spr.color = selfStunnedColour;
             }
         }
         else
         {
-            inAttackRange = false;
+            foreach (SpriteRenderer spr in visuals)
+            {
+                spr.color = Color.white;
+            }
+            isSelfStunned = false;
         }
-        #endregion
 
-        #region agro once in radius
-        if (Vector2.Distance(transform.position, Player.transform.position) < AgroRadius)
-        {
-            IsAgro = true;
-            
-        }
-        if(Vector2.Distance(transform.position, Player.transform.position) > MustHavebeenthewind)
-        {
-            IsAgro = false;
-           
-        }
-        #endregion
+        if (!isSelfStunned) {
+            #region attack trigger
+            if (Vector2.Distance(Player.transform.position, transform.position) <= attackRange)
+            {
+                inAttackRange = true;
+                Attack();
+            }
+            else
+            {
+                inAttackRange = false;
+            }
+            #endregion
 
-        MoveEnemy();
+            #region agro once in radius
+            if (Vector2.Distance(transform.position, Player.transform.position) < AgroRadius)
+            {
+                IsAgro = true;
+
+            }
+            if (Vector2.Distance(transform.position, Player.transform.position) > MustHavebeenthewind)
+            {
+                IsAgro = false;
+
+            }
+            #endregion
+
+            MoveEnemy();
+        }
 
         #region update Visuals
 
@@ -170,13 +194,28 @@ public class enemyCore : MonoBehaviour
         force.Normalize();
         Player.GetComponent<Rigidbody2D>().AddForce(force * pushforce, ForceMode2D.Impulse);
     }
+    public virtual void Attack(int damage)
+    {
+        DamagePlayer(damage);
+        StunPlayer(stuntime);
+
+        Vector2 force = Player.transform.position - transform.position;
+        force.Normalize();
+        Player.GetComponent<Rigidbody2D>().AddForce(force * pushforce, ForceMode2D.Impulse);
+    }
 
     public void DamagePlayer()
     {
         int randDMG = Mathf.RoundToInt(attackDamage + Random.Range(-DamageRandom, DamageRandom));
         int dmg = (int)Mathf.Clamp(randDMG, 1, 999);
 
-        Player.GetComponent<PlayerStats>().health -= dmg;
+        PlayerStats plst = Player.GetComponent<PlayerStats>();
+        Mathf.Clamp(plst.health - dmg, 0, plst.maxHealth);
+    }
+    public void DamagePlayer(int damage)
+    {
+        PlayerStats plst = Player.GetComponent<PlayerStats>();
+        Mathf.Clamp(plst.health - damage, 0, plst.maxHealth);
     }
 
     public void StunPlayer(float time)
@@ -207,6 +246,17 @@ public class enemyCore : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Bullet")
+        {
+            health = Mathf.Clamp(health - 1, 0, 999);
+            selfStunTimer = 0.3f;
+
+
+            Destroy(col.gameObject);
+        }
+    }
 
     private void OnDrawGizmos()
     {

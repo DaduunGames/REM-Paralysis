@@ -43,11 +43,15 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsStunned;
     public float stunTimer;
+    public Color stunedColour;
+    private SpriteRenderer[] bodyParts;
 
     private void Start()
     {
         cam = FindObjectOfType<Camera>();
         pStats = GetComponent<PlayerStats>();
+
+        bodyParts = GetComponentsInChildren<SpriteRenderer>();
         
     }
 
@@ -96,6 +100,17 @@ public class PlayerMovement : MonoBehaviour
         if (!IsStunned)
         {
             RotatePillow();
+            foreach (SpriteRenderer spr in bodyParts)
+            {
+                spr.color = Color.white;
+            }
+        }
+        else
+        {
+            foreach (SpriteRenderer spr in bodyParts)
+            {
+                spr.color = stunedColour;
+            }
         }
 
         if (stunTimer > 0) //currently stunned
@@ -168,9 +183,19 @@ public class PlayerMovement : MonoBehaviour
         dust.Play();
     }
 
-    //void fire()
-    //{
-    //    bulletPos = transform.position;
-  
-    //}
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "EBullet")
+        {
+            pStats.health = Mathf.Clamp(pStats.health - 1, 0, pStats.maxHealth);
+            stunTimer = 0.3f;
+
+            Vector2 force = col.transform.position - transform.position;
+            force.Normalize();
+            force *= -1;
+            GetComponent<Rigidbody2D>().AddForce(force * 4, ForceMode2D.Impulse);
+
+            Destroy(col.gameObject);
+        }
+    }
 }

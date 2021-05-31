@@ -208,10 +208,12 @@ MonoBehaviour:
   pillow: {fileID: 1704760720292645110}
   walkSpeed: 2
   sprintModifier: 2
+  isDashing: 0
   dashSpeed: 50
   cooldown: 0
   IsStunned: 0
   stunTimer: 0
+  stunedColour: {r: 0.9433962, g: 0.23584905, b: 0.2697731, a: 1}
 --- !u!50 &7415430263309333317
 Rigidbody2D:
   serializedVersion: 4
@@ -225,7 +227,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -245,8 +247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3085884c976ee48b2ffda937243350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
-  maxHealth: 3
+  health: 4
+  maxHealth: 12
   money: 0
   movementSpeedModifier: 1
   dashDistanceModifier: 1

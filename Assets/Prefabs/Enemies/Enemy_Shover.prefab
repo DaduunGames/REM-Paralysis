@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 4201225075443142457}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.087037, y: -1.401515, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4201225073671216163}
   m_Father: {fileID: 0}
@@ -184,7 +184,7 @@ MonoBehaviour:
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 3
+  maxSpeed: 1.5
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -286,12 +286,15 @@ MonoBehaviour:
   SP: {fileID: 4201225073671216162}
   Player: {fileID: 0}
   showRadiuses: 0
-  health: 0
-  AgroRadius: 5.48
-  MustHavebeenthewind: 10.56
-  attackRange: 1.5
+  health: 2
+  AgroRadius: 3.54
+  MustHavebeenthewind: 5.43
+  attackRange: 0.85
   attackDamage: 0
   DamageRandom: 1
-  pushforce: 5
+  pushforce: 15
   stuntime: 0.5
   hitCooldown: 2
+  selfStunnedColour: {r: 1, g: 0.4862745, b: 0.60784316, a: 1}
+  deathParticles: {fileID: 5220686895288327800, guid: 3810b9dd06e937e40b65b021ded4d05e,
+    type: 3}

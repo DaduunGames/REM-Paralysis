@@ -143,7 +143,7 @@ Transform:
   m_GameObject: {fileID: 7374001344815613474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.12, y: 1.88, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 7374001344768024019}
   - {fileID: 7374001343758709324}
@@ -308,19 +308,22 @@ MonoBehaviour:
   agroDirectionalBodies: []
   SP: {fileID: 7374001344768024018}
   Player: {fileID: 0}
-  showRadiuses: 1
-  health: 2
-  AgroRadius: 7.19
-  MustHavebeenthewind: 9.69
-  attackRange: 2.07
+  showRadiuses: 0
+  health: 1
+  AgroRadius: 6.06
+  MustHavebeenthewind: 6.25
+  attackRange: 0.85
   attackDamage: 1
   DamageRandom: 0
-  pushforce: 5
+  pushforce: 4
   stuntime: 0.5
   hitCooldown: 2
+  selfStunnedColour: {r: 1, g: 0.48584908, b: 0.6041899, a: 1}
+  deathParticles: {fileID: 5220686895288327800, guid: 3810b9dd06e937e40b65b021ded4d05e,
+    type: 3}
   Bullet: {fileID: 9033737209784935800, guid: b64af6d41d37940448e59eaa266c6ace, type: 3}
   runAwayTarget: {fileID: 7374001343758709327}
-  WalkingSpeed: 2
-  Runningspeed: 4
+  WalkingSpeed: 1
+  Runningspeed: 2
   SummonCooldown: 1
-  RunawayRadius: 5.29
+  RunawayRadius: 3.59

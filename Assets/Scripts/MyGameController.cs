@@ -11,8 +11,11 @@ public class MyGameController : MonoBehaviour
 
     public float restartDelay = 1f;
 
+    private PlayerMovement Player;
+
     private void Start()
     {
+        Player = FindObjectOfType<PlayerMovement>();
         Cursor.SetCursor(cursor,new Vector2(cursor.width/2,cursor.height/2),CursorMode.Auto);
     }
 
@@ -20,6 +23,7 @@ public class MyGameController : MonoBehaviour
     {
             gameHasEnded = true;
             Debug.Log("GAME OVER");
+            Player.stunTimer = 999;
             //Game Over Screen
             Invoke("Restart", restartDelay);
         

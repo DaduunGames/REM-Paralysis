@@ -163,6 +163,8 @@ public class PlayerStats : MonoBehaviour
             
             Destroy(col.gameObject);
         }
+
+        
     }
 
     public void AddItem(GameObject itemObj)
@@ -171,8 +173,8 @@ public class PlayerStats : MonoBehaviour
         Item item = itemObj.GetComponent<Item>();
 
         //plusing a modifier
-        health = Mathf.Clamp(health + item.health, 0 , maxHealth);
         maxHealth += item.maxHealth;
+        health = Mathf.Clamp(health + item.health, 0 , maxHealth);
         money += item.money;
         movementSpeedModifier += item.movementSpeedModifier;
         dashDistanceModifier += item.dashDistanceModifier;
@@ -205,5 +207,7 @@ public class PlayerStats : MonoBehaviour
         //AOE = item.AOE;
         //bulletType = item.bulletType;
     }
+
+
 
 }

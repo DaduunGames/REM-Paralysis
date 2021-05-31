@@ -12,6 +12,8 @@ public class VoidIsLava : MonoBehaviour
 
     RoomController roomController;
 
+    
+
     private void Start()
     {
         gameController = FindObjectOfType<MyGameController>();
@@ -26,24 +28,19 @@ public class VoidIsLava : MonoBehaviour
             gameController.EndGame();
             //Debug.Log("Working?");
         }
-    }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero);
 
-        if (collision.tag == "Floor")
+        if (hit.collider != null)
         {
-            isTouchingGround = true;
-  
-        }
-    }
+                isTouchingGround = true;
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Floor")
+        }
+        else
         {
             isTouchingGround = false;
-           
+
         }
     }
+
 }
