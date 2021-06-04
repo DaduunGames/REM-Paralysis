@@ -108,7 +108,7 @@ MonoBehaviour:
   bulletSizeModifier: -0.1
   attackSpeedModifier: 0.15
   AOE: {fileID: 0}
-  bulletType: 3
+  bulletType: 0
 --- !u!61 &7234891734222104798
 BoxCollider2D:
   m_ObjectHideFlags: 0

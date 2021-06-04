@@ -30,7 +30,7 @@ public class Breakables : MonoBehaviour
         if (col.gameObject.layer == 9)
         {
             float rand = Random.Range(0f, 1f);
-            print( $"random{rand}. my chance: {lootChance}. bool: {lootChance >= rand}");
+            //print( $"random{rand}. my chance: {lootChance}. bool: {lootChance >= rand}");
             
             
             Break(lootChance >= rand);

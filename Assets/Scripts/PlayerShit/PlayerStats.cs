@@ -67,13 +67,14 @@ public class PlayerStats : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
-        if (hit.collider != null)
+        if (hit.collider)
         {
-
+            print(hit.collider.name);
             if (hit.transform.gameObject.tag == "Item")
             {
+               
                 Item item = hit.transform.GetComponent<Item>();
-                if (!Tooltip.Equals(null))
+                if (Tooltip && item)
                 {
                     Tooltip.SetActive(true);
                     Tooltip.transform.position = Input.mousePosition + new Vector3(0, 20, 0);
@@ -123,6 +124,16 @@ public class PlayerStats : MonoBehaviour
                     if (!Tooltip.Equals(null)) Tooltip.SetActive(false);
 
                 }
+            }
+            else if (hit.transform.gameObject.tag == "BossPortal")
+            {
+                Tooltip.SetActive(true);
+                Tooltip.transform.position = Input.mousePosition + new Vector3(0, 20, 0);
+
+                titleText.text = "Broken Portal";
+                loreText.text = "I wonder where it led...";
+                PositiveEffectText.enabled = false;
+                NegativeEffectText.enabled = false;
             }
             else
             {

@@ -13,6 +13,8 @@ public class PistolScript : MonoBehaviour
     private float shootSpeedMod;
     private float timer;
 
+    
+
 
     void Update()
     {
@@ -20,7 +22,7 @@ public class PistolScript : MonoBehaviour
         {
 
             bool stunned = transform.root.GetComponent<PlayerMovement>().IsStunned;
-            if (Input.GetButton("Fire1") && !stunned)
+            if (Input.GetButton("Fire1") && !stunned && !PauseMenu.GameIsPaused)
             {//when the left mouse button is clicked
 
                 Pistol();
