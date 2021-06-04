@@ -11,6 +11,9 @@ public class weaponHandler : MonoBehaviour
     public GameObject weaponHolder;
     public GameObject currentGun;
 
+    public AudioSource eAudio;
+    public AudioSource qAudio;
+
     public Animator animator;
     
     // Start is called before the first frame update
@@ -44,6 +47,7 @@ public class weaponHandler : MonoBehaviour
                 currentGun = guns[currentWeaponIndex];
 
                 animator.SetInteger("GunType", animator.GetInteger("GunType")+1);
+                eAudio.Play();
             }
         }
 
@@ -57,6 +61,7 @@ public class weaponHandler : MonoBehaviour
                 guns[currentWeaponIndex].SetActive(true);
 
                 animator.SetInteger("GunType", animator.GetInteger("GunType") - 1);
+                qAudio.Play();
             }
         }
     }

@@ -6,6 +6,7 @@ public class ShotgunScript : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public ParticleSystem featherPuff;
+    public AudioSource shotgunAudio;
 
     public float shootSpeed;
     private float shootSpeedMod;
@@ -22,6 +23,7 @@ public class ShotgunScript : MonoBehaviour
             {//when the left mouse button is clicked
 
                 Shotgun();
+                shotgunAudio.Play();
 
                 //reset timer
                 shootSpeedMod = transform.root.GetComponent<PlayerStats>().attackSpeedModifier;

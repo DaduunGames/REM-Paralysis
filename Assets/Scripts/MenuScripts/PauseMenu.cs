@@ -11,6 +11,8 @@ public class PauseMenu : MonoBehaviour
 
     public Animator animator;
 
+    public AudioSource pauseAudio;
+
     // Update is called once per frame
     void Update()
     {
@@ -24,6 +26,7 @@ public class PauseMenu : MonoBehaviour
             else
             {
                 Pause();
+                pauseAudio.Play();
             }
         }
     }

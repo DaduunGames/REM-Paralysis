@@ -6,6 +6,7 @@ public class ChargedScript : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public ParticleSystem featherPuff;
+    public AudioSource chargedAudio;
 
     private float totalCharge = 0f;
     private float totalChargeNeeded = 1f;
@@ -21,6 +22,7 @@ public class ChargedScript : MonoBehaviour
         if (Input.GetKeyUp(chargedAndShootKey))
         {
             Charged();
+            chargedAudio.Play();
         }
 
     }

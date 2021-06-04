@@ -130,7 +130,10 @@ public class PlayerStats : MonoBehaviour
             }
         }
 
-
+        if (health <= 0)
+        {
+            myGameController.EndGame();
+        }
         
     }
 
