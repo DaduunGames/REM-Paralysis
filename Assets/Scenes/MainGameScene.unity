@@ -6391,6 +6391,7 @@ MonoBehaviour:
   bridgeSpawnChance: 35
   AllRooms:
   - {fileID: 8296448380780828768, guid: 938b8bd4a8d326e43937148cde6b8fd0, type: 3}
+  - {fileID: 7217947589994804897, guid: 7ce4d4e1b434b734095a0f386be8dbba, type: 3}
   TopRooms: []
   BottomRooms: []
   LeftRooms: []
