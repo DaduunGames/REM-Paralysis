@@ -19,7 +19,7 @@ public class ShotgunScript : MonoBehaviour
         {
 
             bool stunned = transform.root.GetComponent<PlayerMovement>().IsStunned;
-            if (Input.GetButton("Fire1") && !stunned)
+            if (Input.GetButton("Fire1") && !stunned && !PauseMenu.GameIsPaused)
             {//when the left mouse button is clicked
 
                 Shotgun();

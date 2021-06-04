@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 7554946573463998874}
   m_Layer: 11
   m_Name: FallZones
-  m_TagString: Untagged
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1954,7 +1954,7 @@ GameObject:
   - component: {fileID: 6598503179639581729}
   m_Layer: 11
   m_Name: corner bit (2)
-  m_TagString: Untagged
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2546,7 +2546,7 @@ GameObject:
   - component: {fileID: 710837705718313189}
   m_Layer: 11
   m_Name: Left Edge
-  m_TagString: Untagged
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2630,7 +2630,7 @@ GameObject:
   - component: {fileID: 4854197462547553511}
   m_Layer: 11
   m_Name: Right Edge
-  m_TagString: Untagged
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3362,9 +3362,12 @@ GameObject:
   - component: {fileID: 3485819972942918420}
   - component: {fileID: 2632721642372508068}
   - component: {fileID: 1797977652635954231}
+  - component: {fileID: 3609372729459688541}
+  - component: {fileID: 2116631682408631180}
+  - component: {fileID: 4193229871762344274}
   m_Layer: 0
-  m_Name: BossPortal_Placeholder
-  m_TagString: Untagged
+  m_Name: BrokenPortal
+  m_TagString: BossPortal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3377,7 +3380,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5248910331202851011}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.66, z: -1}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 2857399391384495011}
@@ -3422,8 +3425,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: b06fa914bf5e50b4ab8dc272e280d4c0, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 10c2df77619e72d40a250327c9c2928c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3445,6 +3448,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa575ea30d247040a9e0463b22d366d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &3609372729459688541
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5248910331202851011}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.008445875, y: -0.2111656}
+  m_Size: {x: 0.91417783, y: 0.55942243}
+  m_Direction: 1
+--- !u!70 &2116631682408631180
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5248910331202851011}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.008445875, y: -0.2111656}
+  m_Size: {x: 0.91417783, y: 0.55942243}
+  m_Direction: 1
+--- !u!50 &4193229871762344274
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5248910331202851011}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &5332800834849481764
 GameObject:
   m_ObjectHideFlags: 0
@@ -4084,7 +4140,7 @@ GameObject:
   - component: {fileID: 2455059630003632112}
   m_Layer: 11
   m_Name: Bottom Edge
-  m_TagString: Untagged
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4170,7 +4226,7 @@ GameObject:
   - component: {fileID: 847288803215592988}
   m_Layer: 11
   m_Name: corner bit
-  m_TagString: Untagged
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4470,7 +4526,7 @@ GameObject:
   - component: {fileID: 1667217142810573751}
   m_Layer: 11
   m_Name: corner bit (3)
-  m_TagString: Untagged
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4857,7 +4913,7 @@ GameObject:
   - component: {fileID: 8034049819196898070}
   m_Layer: 11
   m_Name: corner bit (1)
-  m_TagString: Untagged
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5724,7 +5780,7 @@ GameObject:
   - component: {fileID: 1324622724840090794}
   m_Layer: 11
   m_Name: Top Edge
-  m_TagString: Untagged
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

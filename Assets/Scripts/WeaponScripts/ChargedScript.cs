@@ -12,25 +12,33 @@ public class ChargedScript : MonoBehaviour
     private float totalChargeNeeded = 1f;
     private KeyCode chargedAndShootKey = KeyCode.Mouse0;
 
+    public Gradient ChargeOverTime;
+    public SpriteRenderer spr;
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(chargedAndShootKey))
+        spr.color = ChargeOverTime.Evaluate(totalCharge / totalChargeNeeded);
+
+        if (Input.GetKey(chargedAndShootKey) && !PauseMenu.GameIsPaused)
         {
             totalCharge += Time.deltaTime;
         }
-        if (Input.GetKeyUp(chargedAndShootKey))
+        if (Input.GetKeyUp(chargedAndShootKey) && !PauseMenu.GameIsPaused)
         {
             Charged();
-            chargedAudio.Play();
+            //moved teh audio into the Charged() function so that it only plays when you're successful
+            //chargedAudio.Play();
         }
 
     }
 
     void Charged()
     {
-        if (totalCharge >= totalChargeNeeded)
+        if (totalCharge >= totalChargeNeeded && !PauseMenu.GameIsPaused)
         {
+            chargedAudio.Play();
+
             GameObject Clone;
 
             Clone = (Instantiate(bulletPrefab, transform.position, transform.rotation)) as GameObject;

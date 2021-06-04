@@ -97,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
         }
         #endregion
 
+        #region stun logic
         if (!IsStunned)
         {
             RotatePillow();
@@ -122,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
         {
             IsStunned = false;
         }
-        
+        #endregion
 
 
         movement.x = Input.GetAxisRaw("Horizontal");

@@ -41,7 +41,7 @@ public class PauseMenu : MonoBehaviour
     void Pause()
     {
         pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
+        Time.timeScale = 0;
         GameIsPaused = true;
     }
 
@@ -69,6 +69,11 @@ public class PauseMenu : MonoBehaviour
     {
 
         animator.SetBool("ToHelp", ToHelp);
+    }
+
+    public void DebugMenu(string text)
+    {
+        print(text);
     }
 }
 
