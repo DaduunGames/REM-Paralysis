@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject pillow;
 
+    public AudioSource dashAudio;
+
     #region Walking Variables
     private float moveSpeed = 5f;
     public float walkSpeed;
@@ -78,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
             dashMovement = dashSpeed * pStats.dashDistanceModifier;
             timer = cooldown * pStats.dashCooldownModifier;
             CreateDust();
+            dashAudio.Play();
         }
 
         if (dashMovement > 1)
