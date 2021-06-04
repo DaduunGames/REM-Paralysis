@@ -15,6 +15,9 @@ public class Breakables : MonoBehaviour
     [Range(0,1)]
     public float RandomBushChance;
 
+    public AudioClip[] breakableSounds;
+    public AudioSource breakablesAudio;
+
     private void Start()
     {
         spawnLoot = LootTable[Random.Range(0,LootTable.Length-1)];
@@ -23,6 +26,13 @@ public class Breakables : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        //breakablesAudio = GetComponent<AudioSource>();
+
+        //if (breakablesAudio == null)
+        //{
+        //    Debug.LogError("No AudioSource found");
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -48,5 +58,15 @@ public class Breakables : MonoBehaviour
         }
 
         Destroy(gameObject);
+        PlayBreakingSound();
+    }
+
+    void PlayBreakingSound()
+    {
+        //Get an audioClip
+        int n = Random.Range(1, breakableSounds.Length);
+        breakablesAudio.clip = breakableSounds[n];
+        //Play the sound once
+        breakablesAudio.PlayOneShot(breakablesAudio.clip);
     }
 }
