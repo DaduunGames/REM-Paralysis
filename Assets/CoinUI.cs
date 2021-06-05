@@ -20,6 +20,9 @@ public class CoinUI : MonoBehaviour
         if(currentMoney != playerStats.money)
         {
             currentMoney = playerStats.money;
+
+
+
             anim.SetTrigger("Change");
         }
     }

@@ -10,6 +10,7 @@ public class Breakables : MonoBehaviour
     public GameObject Coin;
     [Range(0, 1)]
     public float ExtraCoinChance;
+    public Vector2 ExtraCoinMinMax = new Vector2(1,3);
     public GameObject breakParticles;
     
 
@@ -65,7 +66,7 @@ public class Breakables : MonoBehaviour
 
             if (ExtraCoinChance >= Random.Range(0f,1f))
             {
-                for (int i = Random.Range(1,3); i > 0; i--)
+                for (int i = Random.Range((int)ExtraCoinMinMax.x, (int)ExtraCoinMinMax.y); i > 0; i--)
                 {
                     GameObject spawned = Instantiate(Coin, transform.position, transform.rotation);
                     spawned.transform.position += (Vector3)Random.insideUnitCircle;

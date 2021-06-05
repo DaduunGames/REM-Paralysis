@@ -52,6 +52,8 @@ public class enemyCore : MonoBehaviour
     public GameObject deathParticles;
     public GameObject Coin;
 
+    public chestSpawner chest;
+
     #endregion
 
     private void Start()
@@ -64,7 +66,9 @@ public class enemyCore : MonoBehaviour
 
 
         destSetter.target = null;
+
         
+
     }
 
     private void Update()
@@ -77,6 +81,9 @@ public class enemyCore : MonoBehaviour
                 GameObject spawned = Instantiate(Coin, transform.position, transform.rotation);
                 spawned.transform.position += (Vector3)Random.insideUnitCircle;
             }
+
+            chest.currentKills++;
+
             Destroy(gameObject);
         }
 

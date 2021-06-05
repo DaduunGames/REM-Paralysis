@@ -17,6 +17,7 @@ public class EnemyWizard : enemyCore
 
     public float SummonCooldown;
     private float summontimer;
+    public GameObject summonParticles;
 
     public override void MoveEnemy()
     {
@@ -65,7 +66,11 @@ public class EnemyWizard : enemyCore
     public void Summon()
     {
         Vector3 summonPos = Random.insideUnitCircle.normalized * summonRange;
+        chest.KillGoal++;
+        
+        GameObject summoned = Instantiate(summon, transform.position + summonPos, Quaternion.identity);
+        summoned.GetComponent<enemyCore>().chest = chest;
 
-        Instantiate(summon, transform.position + summonPos, Quaternion.identity);
+        Instantiate(summonParticles, summoned.transform.position, summoned.transform.rotation);
     }
 }

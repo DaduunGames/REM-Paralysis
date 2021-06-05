@@ -17,6 +17,9 @@ public class EnemySpawnerScript : MonoBehaviour
 
     RoomController rc;
 
+    [HideInInspector]
+    public chestSpawner chest;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,8 @@ public class EnemySpawnerScript : MonoBehaviour
 
         hasSpawned = false;
         player = FindObjectOfType<PlayerMovement>().transform;
+
+        
     }
 
     // Update is called once per frame
@@ -41,7 +46,9 @@ public class EnemySpawnerScript : MonoBehaviour
         hasSpawned = true;
         GameObject enemy = enemies[Random.Range(0, enemies.Length)];
         WhereToSpawn = (Vector2)transform.position + Random.insideUnitCircle * spawnRadius;
-        Instantiate(enemy, WhereToSpawn, Quaternion.identity);
+        GameObject spawned = Instantiate(enemy, WhereToSpawn, Quaternion.identity);
+        spawned.GetComponent<enemyCore>().chest = chest;
+        
     }
 
     private void OnDrawGizmos()
