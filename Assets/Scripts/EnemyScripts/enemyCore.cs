@@ -216,12 +216,12 @@ public class enemyCore : MonoBehaviour
         int dmg = (int)Mathf.Clamp(randDMG, 1, 999);
 
         PlayerStats plst = Player.GetComponent<PlayerStats>();
-        Mathf.Clamp(plst.health - dmg, 0, plst.maxHealth);
+        plst.health = Mathf.Clamp(plst.health - dmg, 0, plst.maxHealth);
     }
     public void DamagePlayer(int damage)
     {
         PlayerStats plst = Player.GetComponent<PlayerStats>();
-        Mathf.Clamp(plst.health - damage, 0, plst.maxHealth);
+        plst.health = Mathf.Clamp(plst.health - damage, 0, plst.maxHealth);
     }
 
     public void StunPlayer(float time)
@@ -262,6 +262,14 @@ public class enemyCore : MonoBehaviour
             
 
             Destroy(col.gameObject);
+        }
+
+        if (col.tag == "BigBullet")
+        {
+            health = Mathf.Clamp(health - 2, 0, 999);
+            selfStunTimer = 0.4f;
+
+            Destroy(col.gameObject, 0.3f);
         }
     }
 
