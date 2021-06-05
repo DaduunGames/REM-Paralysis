@@ -292,7 +292,7 @@ MonoBehaviour:
   attackRange: 0.85
   attackDamage: 0
   DamageRandom: 1
-  pushforce: 15
+  pushforce: 10
   stuntime: 0.5
   hitCooldown: 2
   selfStunnedColour: {r: 1, g: 0.4862745, b: 0.60784316, a: 1}

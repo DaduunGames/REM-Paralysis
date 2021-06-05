@@ -12,6 +12,7 @@ TagManager:
   - Hole
   - EBullet
   - BossPortal
+  - BigBullet
   layers:
   - Default
   - TransparentFX
