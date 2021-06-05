@@ -18,9 +18,10 @@ public class Breakables : MonoBehaviour
     [Range(0,1)]
     public float RandomBushChance;
 
-    public AudioClip[] breakableSounds;
+    //public AudioClip[] breakableSounds;
     public AudioSource breakablesAudio;
 
+    public bool isCrate = true;
     
 
     private void Start()
@@ -32,6 +33,15 @@ public class Breakables : MonoBehaviour
         if (RandomBushChance >= Random.Range(0f,1f))
         {
             Destroy(gameObject);
+        }
+
+        if (isCrate) 
+        {
+            breakablesAudio = FindObjectOfType<CrateBreakable>().GetComponent<AudioSource>();
+        }
+        else
+        {
+            breakablesAudio = FindObjectOfType<BushBreakable>().GetComponent<AudioSource>();
         }
 
         //breakablesAudio = GetComponent<AudioSource>();
@@ -55,7 +65,7 @@ public class Breakables : MonoBehaviour
     }
 
 
-    private void Break(bool CanSpawnLoot)
+    public void Break(bool CanSpawnLoot)
     {
         Instantiate(breakParticles, transform.position, transform.rotation);
 
@@ -72,17 +82,16 @@ public class Breakables : MonoBehaviour
                 }
             }
         }
-
+        breakablesAudio.Play();
         Destroy(gameObject);
-        PlayBreakingSound();
+        
     }
 
-    void PlayBreakingSound()
+    /*void PlayBreakingSound()
     {
-        //Get an audioClip
-        int n = Random.Range(1, breakableSounds.Length);
-        breakablesAudio.clip = breakableSounds[n];
-        //Play the sound once
-        breakablesAudio.PlayOneShot(breakablesAudio.clip);
-    }
+
+        //breakablesAudio.clip = breakableSounds[Random.Range(0, breakableSounds.Length)];
+        breakablesAudio.PlayOneShot(breakableSounds[Random.Range(0, breakableSounds.Length)]);
+        
+    }*/
 }

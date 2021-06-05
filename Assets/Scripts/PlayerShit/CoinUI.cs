@@ -10,6 +10,8 @@ public class CoinUI : MonoBehaviour
     int currentMoney;
     public Text text;
 
+    public AudioSource coinAudio;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -20,6 +22,7 @@ public class CoinUI : MonoBehaviour
         if(currentMoney != playerStats.money)
         {
             currentMoney = playerStats.money;
+            coinAudio.Play();
             anim.SetTrigger("Change");
         }
     }
