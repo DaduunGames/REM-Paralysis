@@ -25,6 +25,8 @@ public class Breakables : MonoBehaviour
 
     private void Start()
     {
+        
+
         spawnLoot = LootTable[Random.Range(0,LootTable.Length-1)];
 
         if (RandomBushChance >= Random.Range(0f,1f))

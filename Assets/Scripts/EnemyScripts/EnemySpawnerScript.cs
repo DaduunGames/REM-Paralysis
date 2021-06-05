@@ -15,9 +15,13 @@ public class EnemySpawnerScript : MonoBehaviour
     private Transform player;
     public float spawnRange;
 
+    RoomController rc;
+
     // Start is called before the first frame update
     void Start()
     {
+        rc = FindObjectOfType<RoomController>();
+
         hasSpawned = false;
         player = FindObjectOfType<PlayerMovement>().transform;
     }
@@ -25,7 +29,7 @@ public class EnemySpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position, player.position) <= spawnRange && hasSpawned == false)
+        if (Vector2.Distance(transform.position, player.position) <= spawnRange && hasSpawned == false && rc.finishedGenerating)
         {
             Spawn();
         }

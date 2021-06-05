@@ -72,7 +72,7 @@ public class enemyCore : MonoBehaviour
         if (health <= 0)
         {
             Instantiate(deathParticles, transform.position, Quaternion.identity);
-            for (int i = Random.Range(1, 3); i < 0; i--)
+            for (int i = Random.Range(1, 3); i > 0; i--)
             {
                 GameObject spawned = Instantiate(Coin, transform.position, transform.rotation);
                 spawned.transform.position += (Vector3)Random.insideUnitCircle;
