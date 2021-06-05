@@ -19,15 +19,7 @@ public class EnemyFlinger : enemyCore
 
     public float RunawayRadius;
 
-    public float JustSpawned;
-
-    private void FixedUpdate()
-    {
-        if (JustSpawned > 0)
-        {
-            JustSpawned -= Time.deltaTime;
-        }
-    }
+   
 
     public override void MoveEnemy()
     {

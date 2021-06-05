@@ -19,6 +19,10 @@ public class EnemyWizard : enemyCore
     private float summontimer;
     public GameObject summonParticles;
 
+    
+
+    
+
     public override void MoveEnemy()
     {
         if (IsAgro)
@@ -52,12 +56,13 @@ public class EnemyWizard : enemyCore
             if (summontimer <= 0)
             {
                 summontimer = SummonCooldown;
-
+                
                 Summon();
 
             }
             else
             {
+                SummonColourTimer = summontimer/SummonCooldown;
                 summontimer -= Time.deltaTime;
             }
         }
@@ -65,9 +70,12 @@ public class EnemyWizard : enemyCore
 
     public void Summon()
     {
+        
         Vector3 summonPos = Random.insideUnitCircle.normalized * summonRange;
         chest.KillGoal++;
-        
+
+        SummonColourTimer = 1f;
+
         GameObject summoned = Instantiate(summon, transform.position + summonPos, Quaternion.identity);
         summoned.GetComponent<enemyCore>().chest = chest;
 

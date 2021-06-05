@@ -63,6 +63,7 @@ SpriteAtlas:
   - {fileID: -83995490278912833, guid: 6ef115c5b4c09bb4f9f11eb2c346f47a, type: 3}
   - {fileID: 21300000, guid: 2ee69586eb4b334419ff24994aef33d8, type: 3}
   - {fileID: 21300000, guid: a351b0d7aa2900844ad8133c6ad74823, type: 3}
+  - {fileID: 21300000, guid: 2093d048c9e339046abf0ca964fe42a8, type: 3}
   - {fileID: 21300000, guid: d7a6e8f8c0c06f6449396ff1c74e07d0, type: 3}
   - {fileID: 1570139646129591743, guid: 5ac1583aa47227347a51043882ef2f34, type: 3}
   - {fileID: 6362588100852680714, guid: 5ac1583aa47227347a51043882ef2f34, type: 3}
@@ -102,6 +103,7 @@ SpriteAtlas:
   - Clouds_20
   - Leaf
   - Feather01
+  - Puff
   - Feather02
   - WoodChunks_1
   - WoodChunks_0

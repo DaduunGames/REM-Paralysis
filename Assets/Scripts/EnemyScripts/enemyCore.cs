@@ -24,6 +24,10 @@ public class enemyCore : MonoBehaviour
     //==========
     public bool IsAgro { get; private set; }
     public bool inAttackRange { get; private set; }
+    [HideInInspector]
+    public float SummonColourTimer;
+    public Gradient summonGradient;
+
     public bool showRadiuses;
 
     public float health;
@@ -54,6 +58,8 @@ public class enemyCore : MonoBehaviour
 
     public chestSpawner chest;
 
+    public float JustSpawned;
+
     #endregion
 
     private void Start()
@@ -73,6 +79,11 @@ public class enemyCore : MonoBehaviour
 
     private void Update()
     {
+        if (JustSpawned > 0)
+        {
+            JustSpawned -= Time.deltaTime;
+        }
+
         if (health <= 0)
         {
             Instantiate(deathParticles, transform.position, Quaternion.identity);
@@ -96,6 +107,11 @@ public class enemyCore : MonoBehaviour
                 spr.color = selfStunnedColour;
             }
         }
+        else if(SummonColourTimer > 0)
+        {
+            SummonColourTimer -= Time.deltaTime;
+            SP.color = summonGradient.Evaluate(SummonColourTimer);
+        }
         else
         {
             foreach (SpriteRenderer spr in visuals)
@@ -105,7 +121,7 @@ public class enemyCore : MonoBehaviour
             isSelfStunned = false;
         }
 
-        if (!isSelfStunned) {
+        if (!isSelfStunned && JustSpawned <= 0) {
             #region attack trigger
             if (Vector2.Distance(Player.transform.position, transform.position) <= attackRange)
             {
