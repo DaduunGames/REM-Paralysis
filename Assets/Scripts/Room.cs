@@ -16,8 +16,10 @@ public class Room : MonoBehaviour
     bool SpawnSuccessful = false;
 
     //public AstarPath aStar;
+    public bool showAstarGizmo;
     public int Astarwidth = 20;
     public int Astardepth = 20;
+    public Vector2 AstarCenterOffset;
     public float AstarnodeSize = 0.25f;
 
     public bool Startingroom = false;
@@ -85,12 +87,21 @@ private void destroyRoomAndBridge()
         // Setup a grid graph with some values
         gg.collision.use2D = true;
         gg.rotation = new Vector3(90, 0, 0);
-        gg.center = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.1f);
+        gg.center = new Vector3(transform.position.x + AstarCenterOffset.x, transform.position.y + AstarCenterOffset.y, transform.position.z - 0.1f);
         // Updates internal size from the above values
         gg.SetDimensions(Astarwidth, Astardepth, AstarnodeSize);
 
         gg.collision.mask = LayerMask.GetMask("Hole");
 
         
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (showAstarGizmo)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireCube(AstarCenterOffset, new Vector3(Astarwidth * AstarnodeSize, Astardepth * AstarnodeSize, 1));
+        }
     }
 }

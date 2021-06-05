@@ -50,6 +50,7 @@ public class enemyCore : MonoBehaviour
     private SpriteRenderer[] visuals;
 
     public GameObject deathParticles;
+    public GameObject Coin;
 
     #endregion
 
@@ -71,6 +72,11 @@ public class enemyCore : MonoBehaviour
         if (health <= 0)
         {
             Instantiate(deathParticles, transform.position, Quaternion.identity);
+            for (int i = Random.Range(1, 3); i < 0; i--)
+            {
+                GameObject spawned = Instantiate(Coin, transform.position, transform.rotation);
+                spawned.transform.position += (Vector3)Random.insideUnitCircle;
+            }
             Destroy(gameObject);
         }
 
@@ -253,6 +259,7 @@ public class enemyCore : MonoBehaviour
             health = Mathf.Clamp(health - 1, 0, 999);
             selfStunTimer = 0.3f;
 
+            
 
             Destroy(col.gameObject);
         }

@@ -260,7 +260,10 @@ MonoBehaviour:
   - {fileID: 7234891734222104785, guid: 006a08b266e7a3d40b807265f2f0f1d2, type: 3}
   - {fileID: 7767997697173267487, guid: 73cc1fa5a820820479a88acb798e9147, type: 3}
   - {fileID: 7767997697173267487, guid: 73cc1fa5a820820479a88acb798e9147, type: 3}
+  - {fileID: 1327954292103126854, guid: b4b3a3654b0d3194ea1e4c1801288f8d, type: 3}
   lootChance: 0.11
+  Coin: {fileID: 1327954292103126854, guid: b4b3a3654b0d3194ea1e4c1801288f8d, type: 3}
+  ExtraCoinChance: 0.073
   breakParticles: {fileID: 3866088883476356832, guid: 5dca61af0bcca7f40bd1ad5125125d58,
     type: 3}
   RandomBushChance: 0.409

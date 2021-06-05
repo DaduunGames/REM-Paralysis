@@ -321,9 +321,11 @@ MonoBehaviour:
   selfStunnedColour: {r: 1, g: 0.48584908, b: 0.6041899, a: 1}
   deathParticles: {fileID: 5220686895288327800, guid: 3810b9dd06e937e40b65b021ded4d05e,
     type: 3}
+  Coin: {fileID: 1327954292103126854, guid: b4b3a3654b0d3194ea1e4c1801288f8d, type: 3}
   Bullet: {fileID: 9033737209784935800, guid: b64af6d41d37940448e59eaa266c6ace, type: 3}
   runAwayTarget: {fileID: 7374001343758709327}
   WalkingSpeed: 1
   Runningspeed: 2
   SummonCooldown: 1
   RunawayRadius: 3.59
+  JustSpawned: 3

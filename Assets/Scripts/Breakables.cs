@@ -7,6 +7,9 @@ public class Breakables : MonoBehaviour
     public GameObject[] LootTable;
     [Range(0,1)]
     public float lootChance;
+    public GameObject Coin;
+    [Range(0, 1)]
+    public float ExtraCoinChance;
     public GameObject breakParticles;
     
 
@@ -17,6 +20,8 @@ public class Breakables : MonoBehaviour
 
     public AudioClip[] breakableSounds;
     public AudioSource breakablesAudio;
+
+    
 
     private void Start()
     {
@@ -55,6 +60,15 @@ public class Breakables : MonoBehaviour
         if (CanSpawnLoot) 
         {
             Instantiate(spawnLoot, transform.position, transform.rotation);
+
+            if (ExtraCoinChance >= Random.Range(0f,1f))
+            {
+                for (int i = Random.Range(1,3); i > 0; i--)
+                {
+                    GameObject spawned = Instantiate(Coin, transform.position, transform.rotation);
+                    spawned.transform.position += (Vector3)Random.insideUnitCircle;
+                }
+            }
         }
 
         Destroy(gameObject);

@@ -110,7 +110,7 @@ public class RoomSpawner : MonoBehaviour
         if (roomController.UnderMinimum) 
         {
             //pick a random room
-            int rand = Random.Range(0, rooms.Count - 1);
+            int rand = Random.Range(0, rooms.Count);
             GameObject room = rooms[rand];
 
             //get new room anchor (so it spawns in the right position regardless of 0,0)

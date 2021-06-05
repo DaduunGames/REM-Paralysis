@@ -248,6 +248,7 @@ MonoBehaviour:
   selfStunnedColour: {r: 1, g: 0.4862745, b: 0.60784316, a: 1}
   deathParticles: {fileID: 5220686895288327800, guid: 3810b9dd06e937e40b65b021ded4d05e,
     type: 3}
+  Coin: {fileID: 1327954292103126854, guid: b4b3a3654b0d3194ea1e4c1801288f8d, type: 3}
   summon: {fileID: 4201225075443142457, guid: cb8cd6a19fb5b1644a7b280c860ff138, type: 3}
   summonRange: 4
   runAwayTarget: {fileID: 8880486559738092003}

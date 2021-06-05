@@ -47,6 +47,8 @@ public class RoomController : MonoBehaviour
     public bool finishedGenerating;
     public bool coverWithLoadingScreen;
     public GameObject loadingScreen;
+
+    
    
     public enum Direction
     {
@@ -218,4 +220,6 @@ public class RoomController : MonoBehaviour
 
         finishedGenerating = true;
     }
+
+    
 }

@@ -50,6 +50,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f11421b4b61f66b4e940e8a1c02d85fe, type: 3}
   - {fileID: 21300000, guid: ed12cce4f9687bd43b1332dd145804da, type: 3}
   - {fileID: 21300000, guid: 4bde845578d3a8c4d80aa727124bbc1c, type: 3}
+  - {fileID: 21300000, guid: 55404765a63b62e4da4ca3d4143c9ce0, type: 3}
   - {fileID: -4712777430531239470, guid: 6ef115c5b4c09bb4f9f11eb2c346f47a, type: 3}
   - {fileID: 2669142961033076756, guid: 6ef115c5b4c09bb4f9f11eb2c346f47a, type: 3}
   - {fileID: -3967920315399815954, guid: 6ef115c5b4c09bb4f9f11eb2c346f47a, type: 3}
@@ -88,6 +89,7 @@ SpriteAtlas:
   - Bridge_cap
   - BulletFeather
   - Pebbles_Vertical
+  - Coin
   - Clouds_8
   - Clouds_0
   - Clouds_1

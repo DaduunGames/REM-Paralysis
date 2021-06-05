@@ -19,6 +19,16 @@ public class EnemyFlinger : enemyCore
 
     public float RunawayRadius;
 
+    public float JustSpawned;
+
+    private void FixedUpdate()
+    {
+        if (JustSpawned > 0)
+        {
+            JustSpawned -= Time.deltaTime;
+        }
+    }
+
     public override void MoveEnemy()
     {
         if (IsAgro)
@@ -80,17 +90,17 @@ public class EnemyFlinger : enemyCore
             aiPath.maxSpeed = WalkingSpeed;
         }
 
-        
-
-        
     }
 
     public void Shoot()
     {
-        GameObject bullet = Instantiate(Bullet, transform.position, Quaternion.identity);
-        Vector2 triangle =  Player.transform.position - transform.position;
-        float z = Mathf.Atan2(triangle.y, triangle.x) * Mathf.Rad2Deg;
-        bullet.transform.Rotate(new Vector3(0,0,z));
+        if (JustSpawned <= 0)
+        {
+            GameObject bullet = Instantiate(Bullet, transform.position, Quaternion.identity);
+            Vector2 triangle = Player.transform.position - transform.position;
+            float z = Mathf.Atan2(triangle.y, triangle.x) * Mathf.Rad2Deg;
+            bullet.transform.Rotate(new Vector3(0, 0, z));
+        }
         
     }
 

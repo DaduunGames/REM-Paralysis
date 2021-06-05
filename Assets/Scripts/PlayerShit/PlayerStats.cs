@@ -69,7 +69,7 @@ public class PlayerStats : MonoBehaviour
 
         if (hit.collider)
         {
-            print(hit.collider.name);
+            //print(hit.collider.name);
             if (hit.transform.gameObject.tag == "Item")
             {
                
