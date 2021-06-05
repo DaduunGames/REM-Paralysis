@@ -264,8 +264,10 @@ MonoBehaviour:
   lootChance: 0.11
   Coin: {fileID: 1327954292103126854, guid: b4b3a3654b0d3194ea1e4c1801288f8d, type: 3}
   ExtraCoinChance: 0.073
+  ExtraCoinMinMax: {x: 1, y: 3}
   breakParticles: {fileID: 3866088883476356832, guid: 5dca61af0bcca7f40bd1ad5125125d58,
     type: 3}
   RandomBushChance: 0.409
   breakablesAudio: {fileID: 4711873020146081789}
   isCrate: 0
+  isChest: 0

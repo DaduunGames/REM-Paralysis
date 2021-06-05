@@ -23,6 +23,7 @@ public class Breakables : MonoBehaviour
     public AudioSource breakablesAudio;
 
     public bool isCrate = true;
+    public bool isChest = true;
     
 
     private void Start()
@@ -43,6 +44,11 @@ public class Breakables : MonoBehaviour
         else
         {
             breakablesAudio = FindObjectOfType<BushBreakable>().GetComponent<AudioSource>();
+        }
+
+        if (isChest)
+        {
+            breakablesAudio = FindObjectOfType<ChestBreakable>().GetComponent<AudioSource>();
         }
 
         //breakablesAudio = GetComponent<AudioSource>();

@@ -11,8 +11,12 @@ public class chestSpawner : MonoBehaviour
 
     public EnemySpawnerScript[] Spawners;
 
+    public bool hasActivated = false;
+
     private void Start()
     {
+        hasActivated = false;
+
         Chest.SetActive(false);
 
         foreach(EnemySpawnerScript spawner in Spawners)
@@ -24,9 +28,10 @@ public class chestSpawner : MonoBehaviour
 
     void Update()
     {
-        if (currentKills >= KillGoal && KillGoal != 0)
+        if (currentKills >= KillGoal && KillGoal != 0 && hasActivated == false)
         {
             Chest.SetActive(true);
+            hasActivated = true;
         }
     }
 }

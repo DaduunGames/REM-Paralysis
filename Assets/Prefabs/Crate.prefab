@@ -113,11 +113,13 @@ MonoBehaviour:
   lootChance: 0.449
   Coin: {fileID: 1327954292103126854, guid: b4b3a3654b0d3194ea1e4c1801288f8d, type: 3}
   ExtraCoinChance: 0.556
+  ExtraCoinMinMax: {x: 1, y: 3}
   breakParticles: {fileID: 6904810905649392566, guid: 48b58afa43f076a458d1fbe1bcf66831,
     type: 3}
   RandomBushChance: 0.745
   breakablesAudio: {fileID: 0}
   isCrate: 1
+  isChest: 0
 --- !u!60 &3230390086774593835
 PolygonCollider2D:
   m_ObjectHideFlags: 0
