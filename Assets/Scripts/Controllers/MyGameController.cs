@@ -28,8 +28,14 @@ public class MyGameController : MonoBehaviour
         gameHasEnded = true;
         Debug.Log("GAME OVER");
         Player.stunTimer = 999;
+        Player.GetComponent<PlayerStats>().health = 0;
 
         //Game Over Screen
+        Invoke("DeathScreen", 1);
+    }
+
+    void DeathScreen()
+    {
         deathScreen.SetActive(true);
     }
 

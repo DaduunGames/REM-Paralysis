@@ -129,32 +129,33 @@ public class PlayerMovement : MonoBehaviour
         #endregion
 
 
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        movement.Normalize();
-
-
-        if(movement != Vector2.zero)
+        if (!IsStunned)
         {
-            float x = Input.GetAxisRaw("Horizontal");
-            float y = Input.GetAxisRaw("Vertical");
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+            movement.Normalize();
 
-            anim_Player.Play("Walk");
-            anim_Player.SetFloat("x", x);
-            anim_Player.SetFloat("y", y);
 
-            
+            if (movement != Vector2.zero)
+            {
+                float x = Input.GetAxisRaw("Horizontal");
+                float y = Input.GetAxisRaw("Vertical");
+
+                anim_Player.Play("Walk");
+                anim_Player.SetFloat("x", x);
+                anim_Player.SetFloat("y", y);
+
+
+            }
+            else
+            {
+                anim_Player.Play("Idle");
+            }
         }
-        else
+        else if(pStats.health <= 0)
         {
-            anim_Player.Play("Idle");
+            anim_Player.Play("Dead");
         }
-
-        //if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > nextFire)
-        //{
-        //    nextFire = Time.time + fireRate;
-        //    fire();
-        //}
 
     }
 

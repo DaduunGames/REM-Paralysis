@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class weaponHandler : MonoBehaviour
 {
@@ -15,7 +16,10 @@ public class weaponHandler : MonoBehaviour
     public AudioSource qAudio;
 
     public Animator animator;
-    
+
+    public float SwitchDelay = 3;
+    float SwitchDelayTimer;
+    public Image radialDelayImage;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,33 +40,46 @@ public class weaponHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            //next Weapon
-            if (currentWeaponIndex < totalWeapons-1)
-            {
-                guns[currentWeaponIndex].SetActive(false);
-                currentWeaponIndex += 1;
-                guns[currentWeaponIndex].SetActive(true);
-                currentGun = guns[currentWeaponIndex];
+        radialDelayImage.fillAmount = SwitchDelayTimer/SwitchDelay;
 
-                animator.SetInteger("GunType", animator.GetInteger("GunType")+1);
-                eAudio.Play();
+        if (SwitchDelayTimer <= 0)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                //next Weapon
+                if (currentWeaponIndex < totalWeapons - 1)
+                {
+                    guns[currentWeaponIndex].SetActive(false);
+                    currentWeaponIndex += 1;
+                    guns[currentWeaponIndex].SetActive(true);
+                    currentGun = guns[currentWeaponIndex];
+
+                    animator.SetInteger("GunType", animator.GetInteger("GunType") + 1);
+                    eAudio.Play();
+
+                    SwitchDelayTimer = SwitchDelay;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                //previous Weapon
+                if (currentWeaponIndex > 0)
+                {
+                    guns[currentWeaponIndex].SetActive(false);
+                    currentWeaponIndex -= 1;
+                    guns[currentWeaponIndex].SetActive(true);
+
+                    animator.SetInteger("GunType", animator.GetInteger("GunType") - 1);
+                    qAudio.Play();
+
+                    SwitchDelayTimer = SwitchDelay;
+                }
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.Q))
+        else
         {
-            //previous Weapon
-            if (currentWeaponIndex > 0)
-            {
-                guns[currentWeaponIndex].SetActive(false);
-                currentWeaponIndex -= 1;
-                guns[currentWeaponIndex].SetActive(true);
-
-                animator.SetInteger("GunType", animator.GetInteger("GunType") - 1);
-                qAudio.Play();
-            }
+            SwitchDelayTimer -= Time.deltaTime;
         }
     }
 }

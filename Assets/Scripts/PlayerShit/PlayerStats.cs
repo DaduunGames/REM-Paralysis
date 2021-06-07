@@ -131,7 +131,7 @@ public class PlayerStats : MonoBehaviour
                 Tooltip.transform.position = Input.mousePosition + new Vector3(0, 20, 0);
 
                 titleText.text = "Broken Portal";
-                loreText.text = "I wonder where it led...";
+                loreText.text = "The Prototype Ends here. Feel free to keep exploring or restart the game!";
                 PositiveEffectText.enabled = false;
                 NegativeEffectText.enabled = false;
             }

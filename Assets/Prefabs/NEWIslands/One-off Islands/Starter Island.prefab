@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2445825461145006456}
   m_Layer: 11
   m_Name: Hole
-  m_TagString: Untagged
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1641,8 +1641,10 @@ MonoBehaviour:
   - {fileID: 6189499202481619084}
   - {fileID: 8667475870694191406}
   SpawnedByMain: {fileID: 0}
+  showAstarGizmo: 0
   Astarwidth: 16
   Astardepth: 16
+  AstarCenterOffset: {x: 0, y: 0}
   AstarnodeSize: 0.5
   Startingroom: 0
 --- !u!50 &7656148589293302436
@@ -1719,7 +1721,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 597215019283097941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6325467159487959793}
@@ -4978,7 +4980,7 @@ GameObject:
   - component: {fileID: 2784399101485763837}
   m_Layer: 11
   m_Name: Hole (1)
-  m_TagString: Untagged
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5081,7 +5083,7 @@ GameObject:
   - component: {fileID: 7237944864789123971}
   m_Layer: 11
   m_Name: Hole (3)
-  m_TagString: Untagged
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5490,7 +5492,7 @@ GameObject:
   - component: {fileID: 32405371053415385}
   m_Layer: 11
   m_Name: Hole (2)
-  m_TagString: Untagged
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
