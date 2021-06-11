@@ -676,7 +676,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 244.87985, y: -111.7883}
+  m_AnchoredPosition: {x: 244.87985, y: -90.57454}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &83392586
@@ -736,9 +736,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1304470905}
         m_MethodName: SetResolution
-        m_Mode: 3
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1556553162}
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2764,6 +2775,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3873302561859679017, guid: 2f1da06b4c30f18479e4c90785a73bb7,
         type: 3}
+      propertyPath: shootSpeed
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873302561859679017, guid: 2f1da06b4c30f18479e4c90785a73bb7,
+        type: 3}
       propertyPath: pistolAudio
       value: 
       objectReference: {fileID: 1959031817}
@@ -2844,13 +2860,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6625944913037130811, guid: 2f1da06b4c30f18479e4c90785a73bb7,
         type: 3}
+      propertyPath: cooldown
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6625944913037130811, guid: 2f1da06b4c30f18479e4c90785a73bb7,
+        type: 3}
       propertyPath: dashAudio
       value: 
       objectReference: {fileID: 572998357}
     - target: {fileID: 6625944913037130811, guid: 2f1da06b4c30f18479e4c90785a73bb7,
         type: 3}
       propertyPath: dashSpeed
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6625944913037130811, guid: 2f1da06b4c30f18479e4c90785a73bb7,
         type: 3}
@@ -3027,6 +3048,11 @@ PrefabInstance:
       propertyPath: radialDelayImage
       value: 
       objectReference: {fileID: 1804175753}
+    - target: {fileID: 7840491824175367286, guid: 2f1da06b4c30f18479e4c90785a73bb7,
+        type: 3}
+      propertyPath: shootSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7840491824175367286, guid: 2f1da06b4c30f18479e4c90785a73bb7,
         type: 3}
       propertyPath: shotgunAudio
@@ -7416,7 +7442,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 102.2, y: 11}
-  m_SizeDelta: {x: 208.18018, y: 213.78302}
+  m_SizeDelta: {x: 224, y: 138}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1304647193
 MonoBehaviour:
@@ -7491,7 +7517,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c23626c522993d499a35db615e74885, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17b218d4272de6c44b59ead511128c74, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8314,7 +8340,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 110.56, y: -1.4200134}
-  m_SizeDelta: {x: 224.91284, y: 230.966}
+  m_SizeDelta: {x: 224, y: 138}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1442518065
 MonoBehaviour:
@@ -8389,7 +8415,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c23626c522993d499a35db615e74885, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17b218d4272de6c44b59ead511128c74, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8862,7 +8888,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 244.87985, y: -61.6383}
+  m_AnchoredPosition: {x: 244.87985, y: -40.42454}
   m_SizeDelta: {x: 101.92015, y: 29.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1580514460
@@ -8911,9 +8937,20 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1304470905}
         m_MethodName: SetFullscreen
-        m_Mode: 6
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 58696902}
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9302,7 +9339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1714174807
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9740,7 +9777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 244.87985, y: -206.65565}
+  m_AnchoredPosition: {x: 244.87985, y: -185.44188}
   m_SizeDelta: {x: 269.39075, y: 29.115318}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1799049663
@@ -9793,23 +9830,12 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1304470905}
         m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11958,7 +11984,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 244.87985, y: -159.44315}
+  m_AnchoredPosition: {x: 244.87985, y: -138.22937}
   m_SizeDelta: {x: 200, y: 24.10968}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2106754488
